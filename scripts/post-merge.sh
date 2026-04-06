@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+npm install --prefer-offline --no-audit --no-fund 2>/dev/null || npm install
+rm -rf .next
+echo "Post-merge setup complete"
