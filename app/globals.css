@@ -183,6 +183,29 @@ html {
   -webkit-backdrop-filter: blur(20px);
 }
 
+:root.dark .glass-white {
+  background: rgba(17, 24, 39, 0.9);
+}
+
+:root.dark .section-gradient-light {
+  background: linear-gradient(180deg, #030712 0%, #111827 50%, #030712 100%);
+}
+
+:root.dark .section-gradient-cream {
+  background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+}
+
+:root.dark .gradient-mesh {
+  background:
+    radial-gradient(ellipse at 20% 20%, rgba(201, 168, 76, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 80%, rgba(26, 77, 122, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(18, 58, 99, 0.06) 0%, transparent 70%);
+}
+
+:root.dark .card-premium:hover {
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
 .gradient-navy {
   background: linear-gradient(135deg, #0a1f38 0%, #123A63 30%, #1a5a8a 60%, #123A63 100%);
 }
