@@ -361,6 +361,12 @@ export default function BookingCalendar() {
               className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-navy focus:ring-1 focus:ring-navy outline-none text-sm bg-white"
             >
               <option value="">— Sélectionner</option>
+              <option value="maternelle">Maternelle (3–6 ans)</option>
+              <option value="cp">CP</option>
+              <option value="ce1">CE1</option>
+              <option value="ce2">CE2</option>
+              <option value="cm1">CM1</option>
+              <option value="cm2">CM2</option>
               <option value="6eme">6ème</option>
               <option value="5eme">5ème</option>
               <option value="4eme">4ème</option>

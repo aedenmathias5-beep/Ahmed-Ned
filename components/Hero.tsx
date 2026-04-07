@@ -134,7 +134,7 @@ export default function Hero() {
             {[
               { value: 'Agrégé', label: 'Plus haut concours national', icon: '🎓' },
               { value: '200+', label: 'Élèves accompagnés', icon: '👨‍🎓' },
-              { value: '6e→Tle', label: 'Maths Expert inclus', icon: '📐' },
+              { value: 'Primaire→Tle', label: 'Maths Expert inclus', icon: '📐' },
               { value: 'Inclusif', label: 'TDAH · Dys · TSA · HPI', icon: '♾️' },
             ].map((stat, i) => (
               <div

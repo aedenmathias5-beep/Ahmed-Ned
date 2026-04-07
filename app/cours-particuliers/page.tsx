@@ -8,11 +8,12 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://monpetitgenie.io'
 export const metadata: Metadata = {
   title: 'Cours Particuliers de Mathématiques — Professeur Agrégé',
   description:
-    'Cours particuliers de mathématiques à Paris (7e, 8e, 16e) et Strasbourg avec un professeur agrégé en activité. Du collège à la Terminale Maths Expert. Contact direct.',
+    'Cours particuliers de mathématiques à Paris (7e, 8e, 16e) et Strasbourg avec un professeur agrégé en activité. Du primaire à la Terminale Maths Expert. Contact direct.',
   alternates: { canonical: `${siteUrl}/cours-particuliers` },
 }
 
 const niveaux = [
+  { label: 'Primaire (CP → CM2)', desc: 'Apprentissage des fondamentaux, méthode de travail, préparation au collège' },
   { label: '6ème — 5ème — 4ème', desc: 'Remise à niveau, consolidation des bases, méthode de travail' },
   { label: '3ème', desc: 'Préparation au Brevet des collèges, entraînement sur sujets officiels' },
   { label: '2nde — 1ère', desc: 'Adaptation au lycée, approfondissement, préparation aux épreuves' },
@@ -37,7 +38,7 @@ export default function CoursParticuliers() {
             </h1>
             <p className="text-lg max-w-2xl leading-relaxed mb-10 text-white/65">
               Professeur agrégé en activité, je propose des cours particuliers à domicile
-              à Paris (7e, 8e, 16e), Strasbourg et en ligne. Du collège à la Terminale Maths Expert.
+              à Paris (7e, 8e, 16e), Strasbourg et en ligne. Du primaire à la Terminale Maths Expert.
             </p>
             <a href="/prendre-rendez-vous" className="btn-primary bg-gold !text-navy hover:bg-gold-light">
               Prendre rendez-vous

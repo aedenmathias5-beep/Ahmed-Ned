@@ -15,7 +15,7 @@ const categories: FAQCategory[] = [
     questions: [
       {
         q: 'Quelles matières enseignez-vous ?',
-        a: "Je suis spécialisé en mathématiques, du collège (6e) à la Terminale Maths Expert. C'est ma matière d'expertise en tant que professeur agrégé.",
+        a: "Je suis spécialisé en mathématiques, du primaire (CP) à la Terminale Maths Expert. C'est ma matière d'expertise en tant que professeur agrégé.",
       },
       {
         q: 'Intervenez-vous dans toute l\'Île-de-France ?',
@@ -89,7 +89,7 @@ const categories: FAQCategory[] = [
       },
       {
         q: 'Quel est le niveau minimum requis ?',
-        a: "Aucun niveau minimum n'est requis. J'accompagne les élèves de la 6ème à la Terminale Maths Expert, quelle que soit leur situation de départ — en grande difficulté ou en quête d'excellence.",
+        a: "Aucun niveau minimum n'est requis. J'accompagne les élèves du primaire (CP) à la Terminale Maths Expert, quelle que soit leur situation de départ — en grande difficulté ou en quête d'excellence.",
       },
       {
         q: 'Travaillez-vous avec des élèves en prépa ?',

@@ -5,9 +5,18 @@ import Link from 'next/link'
 
 const services = [
   {
+    emoji: '🌱',
+    title: 'Suivi des tout-petits',
+    subtitle: '3–6 ans · Maternelle',
+    description:
+      "Apprentissage des fondamentaux (lecture, écriture, calcul) avant l'entrée en primaire pour un meilleur niveau.",
+    tags: ['Maternelle', 'Éveil cognitif', 'Préparation CP'],
+    href: '/prendre-rendez-vous',
+  },
+  {
     emoji: '📚',
     title: 'Cours particuliers',
-    subtitle: '6e → Terminale Maths Expert',
+    subtitle: 'Primaire à Terminale Maths Expert',
     description:
       "Suivi individualisé, adapté au profil et aux objectifs de chaque élève. Au domicile ou en ligne, aux horaires fixés directement avec la famille.",
     tags: ['À domicile', 'Flexible', 'Personnalisé'],
@@ -67,7 +76,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {services.map((service, i) => (
             <Link
               key={service.title}

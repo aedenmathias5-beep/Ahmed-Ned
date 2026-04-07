@@ -160,6 +160,12 @@ export default function Contact() {
                   <select required value={form.niveau} onChange={(e) => set('niveau', e.target.value)}
                     className={inputCls}>
                     <option value="">— Sélectionner</option>
+                    <option value="maternelle">Maternelle (3–6 ans)</option>
+                    <option value="cp">CP</option>
+                    <option value="ce1">CE1</option>
+                    <option value="ce2">CE2</option>
+                    <option value="cm1">CM1</option>
+                    <option value="cm2">CM2</option>
                     <option value="sixieme">6ème</option>
                     <option value="cinquieme">5ème</option>
                     <option value="quatrieme">4ème</option>
