@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
+import PaiementButtons from '@/components/PaiementButtons'
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://monpetitgenie.io'
 
@@ -67,6 +68,16 @@ export default function Tarifs() {
                   </div>
                 </div>
               ))}
+            </div>
+
+            <div className="mb-16">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="text-lg">💳</span>
+                <span className="text-navy text-xs tracking-[0.3em] uppercase font-semibold">Paiement en ligne</span>
+              </div>
+              <h2 className="text-2xl font-bold text-navy mb-2">Réglez directement en ligne</h2>
+              <p className="text-muted text-sm mb-8">Paiement sécurisé par carte bancaire, Apple Pay ou Google Pay.</p>
+              <PaiementButtons />
             </div>
 
             <div className="bg-navy p-10 rounded-2xl flex flex-col md:flex-row items-start md:items-center gap-8">
