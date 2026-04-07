@@ -39,31 +39,31 @@ export default function Tarifs() {
     <>
       <Header />
       <main>
-        <section className="section-padding bg-white" style={{ paddingTop: '140px' }}>
+        <section className="section-padding bg-white dark:bg-gray-950" style={{ paddingTop: '140px' }}>
           <div className="container-max">
             <div className="flex items-center gap-3 mb-5">
               <span className="text-lg">💶</span>
               <span className="text-navy text-xs tracking-[0.3em] uppercase font-semibold">Tarifs</span>
             </div>
-            <h1 className="text-5xl md:text-6xl text-navy mb-4 leading-tight font-bold">
+            <h1 className="text-5xl md:text-6xl text-navy dark:text-white mb-4 leading-tight font-bold">
               Tarifs sur devis
               <br />
               <span className="text-gold">personnalisé.</span>
             </h1>
-            <p className="text-lg max-w-2xl mb-16 text-muted">
+            <p className="text-lg max-w-2xl mb-16 text-muted dark:text-gray-400">
               Chaque situation est différente — niveau, fréquence, localisation, objectifs.
               Je préfère vous proposer un tarif adapté plutôt qu&apos;une grille standardisée.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6 mb-16">
               {formules.map((f) => (
-                <div key={f.label} className="bg-cream p-8 rounded-2xl">
+                <div key={f.label} className="bg-cream dark:bg-gray-900 p-8 rounded-2xl">
                   <p className="text-gold text-xs tracking-widest uppercase mb-2 font-medium">{f.freq}</p>
-                  <h2 className="font-bold text-2xl text-navy mb-4">{f.label}</h2>
-                  <p className="text-sm leading-relaxed mb-6 text-muted">{f.desc}</p>
+                  <h2 className="font-bold text-2xl text-navy dark:text-white mb-4">{f.label}</h2>
+                  <p className="text-sm leading-relaxed mb-6 text-muted dark:text-gray-400">{f.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {f.tags.map((t) => (
-                      <span key={t} className="text-xs bg-white px-3 py-1 rounded-full text-muted font-medium">{t}</span>
+                      <span key={t} className="text-xs bg-white dark:bg-gray-800 px-3 py-1 rounded-full text-muted dark:text-gray-300 font-medium">{t}</span>
                     ))}
                   </div>
                 </div>
@@ -75,11 +75,11 @@ export default function Tarifs() {
                 <span className="text-lg">💳</span>
                 <span className="text-navy text-xs tracking-[0.3em] uppercase font-semibold">Paiement en ligne</span>
               </div>
-              <h2 className="text-2xl font-bold text-navy mb-2">Réglez directement en ligne</h2>
-              <p className="text-muted text-sm mb-8">Paiement sécurisé par carte bancaire, Apple Pay ou virement — via Mollie.</p>
+              <h2 className="text-2xl font-bold text-navy dark:text-white mb-2">Réglez directement en ligne</h2>
+              <p className="text-muted dark:text-gray-400 text-sm mb-8">Paiement sécurisé par carte bancaire, Apple Pay ou virement — via Mollie.</p>
               <PaiementButtons />
 
-              <div className="mt-10 border border-gray-100 rounded-2xl p-6 bg-gray-50/50">
+              <div className="mt-10 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 bg-gray-50/50 dark:bg-gray-900/50">
                 <p className="text-xs font-semibold text-charcoal/50 uppercase tracking-widest mb-5 text-center">Moyens de paiement acceptés</p>
                 <div className="flex flex-wrap items-center justify-center gap-4">
 
@@ -162,8 +162,8 @@ export default function Tarifs() {
                 <div key={item.title} className="flex gap-4">
                   <div className="w-1 flex-shrink-0 bg-gold/30 rounded-full" />
                   <div>
-                    <p className="font-semibold text-navy text-sm mb-1">{item.title}</p>
-                    <p className="text-xs leading-relaxed text-muted">{item.desc}</p>
+                    <p className="font-semibold text-navy dark:text-white text-sm mb-1">{item.title}</p>
+                    <p className="text-xs leading-relaxed text-muted dark:text-gray-400">{item.desc}</p>
                   </div>
                 </div>
               ))}
