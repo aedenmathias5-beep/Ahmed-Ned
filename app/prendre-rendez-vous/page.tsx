@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import BookingCalendar from '@/components/BookingCalendar'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mathjard.replit.app'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://monpetitgenie.io'
 
 export const metadata: Metadata = {
   title: 'Prendre rendez-vous — Cours particuliers de mathématiques',

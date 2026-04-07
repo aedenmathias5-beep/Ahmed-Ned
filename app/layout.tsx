@@ -16,7 +16,7 @@ const playfair = Playfair_Display({
   display: 'swap',
 })
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mathjard.replit.app'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://monpetitgenie.io'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

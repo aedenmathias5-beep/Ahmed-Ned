@@ -5,7 +5,7 @@ import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import { posts } from './posts'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mathjard.replit.app'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://monpetitgenie.io'
 
 export const metadata: Metadata = {
   title: 'Blog — Conseils et méthodes en mathématiques',

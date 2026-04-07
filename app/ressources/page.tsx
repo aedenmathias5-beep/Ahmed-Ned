@@ -4,7 +4,7 @@ import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import QuizNiveau from '@/components/QuizNiveau'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mathjard.replit.app'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://monpetitgenie.io'
 
 export const metadata: Metadata = {
   title: 'Ressources Pédagogiques — Annales, Fiches, Exercices, Quiz de Niveau',

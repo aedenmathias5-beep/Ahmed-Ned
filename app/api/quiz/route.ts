@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
             </div>
             <p style="font-size:14px;color:#666;line-height:1.6">Monsieur Nedjar, Professeur Agrégé de Mathématiques, peut accompagner ${prenom} avec un programme personnalisé.</p>
             <div style="text-align:center;margin:24px 0">
-              <a href="https://mathjard.replit.app/prendre-rendez-vous" style="background:#123A63;color:#fff;padding:14px 28px;border-radius:30px;text-decoration:none;font-size:14px;font-weight:bold;display:inline-block">Prendre rendez-vous →</a>
+              <a href="https://monpetitgenie.io/prendre-rendez-vous" style="background:#123A63;color:#fff;padding:14px 28px;border-radius:30px;text-decoration:none;font-size:14px;font-weight:bold;display:inline-block">Prendre rendez-vous →</a>
             </div>
             <p style="font-size:12px;color:#999;text-align:center">Premier appel de découverte gratuit — 15 minutes, sans engagement.</p>
           </div>

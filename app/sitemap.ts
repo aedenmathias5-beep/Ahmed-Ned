@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { posts } from './blog/posts'
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mathjard.replit.app'
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://monpetitgenie.io'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
