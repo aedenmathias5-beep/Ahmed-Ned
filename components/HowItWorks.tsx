@@ -43,7 +43,7 @@ export default function HowItWorks() {
   }, [])
 
   return (
-    <section className="section-padding section-gradient-light relative overflow-hidden" ref={ref}>
+    <section className="section-padding section-gradient-light dark:bg-gray-950 relative overflow-hidden" ref={ref}>
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-navy/10 to-transparent" />
       <div className="absolute inset-0 gradient-mesh pointer-events-none" />
 
@@ -51,10 +51,10 @@ export default function HowItWorks() {
         <div className="mb-16">
           <div className={`flex items-center gap-3 mb-5 transition-all duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}>
             <span className="text-lg">⚙️</span>
-            <span className="text-navy text-xs tracking-[0.3em] uppercase font-semibold">Comment ça marche</span>
+            <span className="text-navy dark:text-gold text-xs tracking-[0.3em] uppercase font-semibold">Comment ça marche</span>
           </div>
           <div className={`flex flex-col md:flex-row md:items-end md:justify-between gap-4 transition-all duration-700 delay-100 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            <h2 className="font-display text-4xl md:text-5xl text-navy leading-tight font-bold">
+            <h2 className="font-display text-4xl md:text-5xl text-navy dark:text-white leading-tight font-bold">
               Démarrer en
               <br />
               <span className="text-gradient">3 étapes simples.</span>
@@ -71,7 +71,7 @@ export default function HowItWorks() {
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className={`relative bg-white rounded-2xl p-8 card-premium border border-gray-50 shadow-sm transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`relative bg-white dark:bg-gray-900 rounded-2xl p-8 card-premium border border-gray-50 dark:border-gray-800 shadow-sm transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${0.2 + i * 0.2}s` }}
             >
               <div className="absolute top-0 left-8 w-12 h-1 bg-gradient-to-r from-navy to-gold rounded-b-full" />
@@ -79,8 +79,8 @@ export default function HowItWorks() {
                 <span className="text-xs font-black text-transparent bg-gradient-to-r from-navy/20 to-gold/30 bg-clip-text uppercase">{step.number}</span>
                 <span className="text-3xl">{step.emoji}</span>
               </div>
-              <h3 className="font-bold text-xl text-navy mb-3">{step.title}</h3>
-              <p className="text-sm leading-relaxed text-muted mb-4">{step.description}</p>
+              <h3 className="font-bold text-xl text-navy dark:text-white mb-3">{step.title}</h3>
+              <p className="text-sm leading-relaxed text-muted dark:text-gray-400 mb-4">{step.description}</p>
               <span className="text-xs tracking-widest uppercase font-semibold text-gradient">
                 {step.detail}
               </span>
