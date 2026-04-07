@@ -36,10 +36,8 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     document.documentElement.classList.toggle('dark', next === 'dark')
   }
 
-  if (!mounted) return <>{children}</>
-
   return (
-    <ThemeContext.Provider value={{ theme, toggle }}>
+    <ThemeContext.Provider value={{ theme: mounted ? theme : 'light', toggle: mounted ? toggle : () => {} }}>
       {children}
     </ThemeContext.Provider>
   )
