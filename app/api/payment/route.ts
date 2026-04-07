@@ -1,10 +1,15 @@
 import { createMollieClient, PaymentMethod } from '@mollie/api-client'
 import { NextRequest, NextResponse } from 'next/server'
 
-const mollie = createMollieClient({ apiKey: process.env.MOLLIE_API_KEY! })
-
 export async function POST(req: NextRequest) {
   try {
+    const apiKey = process.env.MOLLIE_API_KEY
+    if (!apiKey) {
+      return NextResponse.json({ error: 'Configuration de paiement manquante' }, { status: 503 })
+    }
+
+    const mollie = createMollieClient({ apiKey })
+
     const { amount, description } = await req.json()
 
     if (!amount || !description) {
