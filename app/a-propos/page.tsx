@@ -73,7 +73,7 @@ export default function APropos() {
               <div>
                 <div className="bg-cream rounded-2xl p-10 border-l-4 border-gold mb-8">
                   <div className="flex justify-center mb-6">
-                    <Image src="/logo.png" alt="Maths Connections" width={80} height={80} className="rounded-xl" />
+                    <Image src="/logo.png" alt="Maths Connections" width={80} height={80} className="rounded-xl" style={{ width: 'auto', height: 'auto' }} />
                   </div>
                   <blockquote className="text-xl text-navy leading-relaxed text-center font-medium italic">
                     &ldquo;Je connais les programmes, les examinateurs, et ce qu&apos;on attend
