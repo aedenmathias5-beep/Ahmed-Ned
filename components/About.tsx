@@ -32,7 +32,7 @@ export default function About() {
           <div className="relative">
             <div className="bg-cream rounded-2xl p-10 border-l-4 border-gold">
               <div className="flex justify-center mb-6">
-                <Image src="/logo.png" alt="Maths Connections" width={80} height={80} className="rounded-xl" />
+                <Image src="/logo.png" alt="Maths Connections" width={80} height={80} className="rounded-xl" style={{ width: 'auto', height: 'auto' }} />
               </div>
               <div className="text-center space-y-2">
                 <p className="text-2xl font-bold text-navy">Monsieur Nedjar</p>
