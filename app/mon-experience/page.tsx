@@ -100,7 +100,7 @@ export default function MonExperience() {
               <div>
                 <div className="bg-cream rounded-3xl p-10 border-l-4 border-gold text-center sticky top-28">
                   <div className="w-36 h-36 mx-auto rounded-2xl bg-navy/5 border-2 border-navy/10 flex items-center justify-center overflow-hidden mb-6">
-                    <Image src="/logo.png" alt="Monsieur Nedjar" width={100} height={100} className="rounded-xl" />
+                    <Image src="/logo.png" alt="Monsieur Nedjar" width={100} height={100} className="rounded-xl" style={{ width: 'auto', height: 'auto' }} />
                   </div>
                   <p className="text-2xl font-bold text-navy mb-2">Monsieur Nedjar</p>
                   <p className="text-lg text-navy font-medium mb-2">Professeur Agrégé de Mathématiques</p>
