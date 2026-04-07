@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 
 import { Playfair_Display } from 'next/font/google'
+import { Analytics } from '@vercel/analytics/next'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -89,7 +90,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans bg-white text-charcoal antialiased">{children}</body>
+      <body className="font-sans bg-white text-charcoal antialiased">
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
