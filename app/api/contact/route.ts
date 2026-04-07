@@ -7,6 +7,7 @@ export async function POST(req: NextRequest) {
 
   const {
     prenom,
+    prenomParent,
     nom,
     email,
     telephone,
@@ -19,7 +20,9 @@ export async function POST(req: NextRequest) {
     message,
   } = body
 
-  if (!prenom || !nom || !email || !telephone) {
+  const prenomContact: string = prenomParent || prenom || ''
+
+  if (!prenomContact || !nom || !email || !telephone) {
     return NextResponse.json({ error: 'Champs requis manquants.' }, { status: 400 })
   }
 
@@ -66,7 +69,7 @@ export async function POST(req: NextRequest) {
     from: process.env.RESEND_FROM_EMAIL ?? 'Contact <onboarding@resend.dev>',
     to: [process.env.CONTACT_TO_EMAIL ?? 'nedjar.objectif.reussite@gmail.com'],
     replyTo: email,
-    subject: `Demande RDV — ${prenom} ${nom} · ${niveauLabel[niveau] ?? niveau ?? '?'} · ${typeLabel[typebesoin] ?? typebesoin ?? '?'}`,
+    subject: `Demande RDV — ${prenomContact} ${nom} · ${niveauLabel[niveau] ?? niveau ?? '?'} · ${typeLabel[typebesoin] ?? typebesoin ?? '?'}`,
     html: `
       <!DOCTYPE html>
       <html lang="fr">
@@ -76,7 +79,7 @@ export async function POST(req: NextRequest) {
 
           <div style="background:#0B1F3A;padding:32px 40px">
             <p style="color:#C9A84C;font-family:system-ui,sans-serif;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;margin:0 0 8px">Nouvelle demande de rendez-vous</p>
-            <h1 style="color:#fff;font-size:22px;margin:0;font-weight:normal">${prenom} ${nom}</h1>
+            <h1 style="color:#fff;font-size:22px;margin:0;font-weight:normal">${prenomContact} ${nom}</h1>
           </div>
 
           <div style="padding:40px">
@@ -100,7 +103,7 @@ export async function POST(req: NextRequest) {
           </div>
 
           <div style="padding:20px 40px;border-top:1px solid #EDE9E0;font-family:system-ui,sans-serif;font-size:11px;color:#bbb;text-align:center">
-            ahmed-nedjar.fr — Répondre directement à cet email pour contacter ${prenom}
+            ahmed-nedjar.fr — Répondre directement à cet email pour contacter ${prenomContact}
           </div>
         </div>
       </body>
