@@ -55,13 +55,13 @@ export default function PaiementButtons() {
             key={o.amount}
             onClick={() => payer(o.amount, o.description)}
             disabled={loading !== null}
-            className="group relative bg-white border border-gray-100 rounded-2xl p-6 text-left hover:border-gold/50 hover:shadow-lg transition-all duration-300 card-premium disabled:opacity-60 disabled:cursor-not-allowed"
+            className="group relative bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 text-left hover:border-gold/50 hover:shadow-lg transition-all duration-300 card-premium disabled:opacity-60 disabled:cursor-not-allowed"
           >
             <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy via-gold to-navy opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-t-2xl" />
-            <p className="text-base font-bold text-navy mb-1">{o.label}</p>
-            <p className="text-xs text-muted mb-3">{o.subtitle}</p>
+            <p className="text-base font-bold text-navy dark:text-white mb-1">{o.label}</p>
+            <p className="text-xs text-muted dark:text-gray-400 mb-3">{o.subtitle}</p>
             <p className="text-2xl font-bold text-gold">{o.amount.replace('.00', '')}€</p>
-            <p className="mt-4 text-xs font-semibold text-navy/60 group-hover:text-navy transition-colors">
+            <p className="mt-4 text-xs font-semibold text-navy/60 dark:text-gray-400 group-hover:text-navy dark:group-hover:text-gold transition-colors">
               {loading === o.amount ? 'Redirection...' : 'Payer en ligne →'}
             </p>
           </button>
