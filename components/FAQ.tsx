@@ -131,7 +131,7 @@ export default function FAQ() {
   const totalQuestions = categories.reduce((sum, cat) => sum + cat.questions.length, 0)
 
   return (
-    <section id="faq" className="section-padding section-gradient-light relative overflow-hidden" ref={ref}>
+    <section id="faq" className="section-padding section-gradient-light dark:bg-gray-950 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 gradient-mesh pointer-events-none" />
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-navy/10 to-transparent" />
 
@@ -158,7 +158,7 @@ export default function FAQ() {
                   className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all flex items-center justify-between ${
                     activeCategory === i
                       ? 'bg-navy text-white'
-                      : 'bg-surface text-charcoal/70 hover:bg-gray-100'
+                      : 'bg-surface dark:bg-gray-900 text-charcoal/70 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                   }`}
                 >
                   <span>{cat.emoji} {cat.label}</span>
@@ -169,14 +169,14 @@ export default function FAQ() {
               ))}
             </div>
 
-            <div className="bg-surface rounded-xl p-5 text-center card-premium">
-              <p className="text-xs text-muted mb-1">Total</p>
-              <p className="text-2xl font-bold text-navy">{totalQuestions} questions</p>
+            <div className="bg-surface dark:bg-gray-900 rounded-xl p-5 text-center card-premium">
+              <p className="text-xs text-muted dark:text-gray-400 mb-1">Total</p>
+              <p className="text-2xl font-bold text-navy dark:text-white">{totalQuestions} questions</p>
             </div>
 
-            <div className="mt-6 bg-cream rounded-xl p-5 card-premium">
-              <p className="text-sm font-medium text-navy mb-1">Une question non listée ?</p>
-              <p className="text-xs text-muted mb-3">
+            <div className="mt-6 bg-cream dark:bg-gray-900 rounded-xl p-5 card-premium">
+              <p className="text-sm font-medium text-navy dark:text-white mb-1">Une question non listée ?</p>
+              <p className="text-xs text-muted dark:text-gray-400 mb-3">
                 Posez-la directement à M. Nedjar — il répond sous 24h.
               </p>
               <a href="/prendre-rendez-vous" className="text-navy font-semibold text-xs hover:text-navy/70 transition-colors">
@@ -187,7 +187,7 @@ export default function FAQ() {
 
           <div className="md:col-span-2">
             <div className="mb-8">
-              <h2 className="text-3xl md:text-4xl text-navy font-bold mb-2">
+              <h2 className="text-3xl md:text-4xl text-navy dark:text-white font-bold mb-2">
                 {categories[activeCategory].emoji} {categories[activeCategory].label}
               </h2>
               <p className="text-sm text-muted">
@@ -195,7 +195,7 @@ export default function FAQ() {
               </p>
             </div>
 
-            <div className="divide-y divide-gray-100">
+            <div className="divide-y divide-gray-100 dark:divide-gray-800">
               {categories[activeCategory].questions.map((faq, i) => (
                 <div key={i}>
                   <button
@@ -203,7 +203,7 @@ export default function FAQ() {
                     className="w-full flex items-start justify-between gap-6 py-5 text-left group"
                   >
                     <span className={`font-medium text-base transition-colors ${
-                      openQuestion === i ? 'text-navy' : 'text-charcoal group-hover:text-navy'
+                      openQuestion === i ? 'text-navy dark:text-gold' : 'text-charcoal dark:text-gray-200 group-hover:text-navy dark:group-hover:text-gold'
                     }`}>
                       {faq.q}
                     </span>
@@ -219,7 +219,7 @@ export default function FAQ() {
                     </span>
                   </button>
                   {openQuestion === i && (
-                    <p className="pb-5 text-sm leading-relaxed text-muted">
+                    <p className="pb-5 text-sm leading-relaxed text-muted dark:text-gray-400">
                       {faq.a}
                     </p>
                   )}
