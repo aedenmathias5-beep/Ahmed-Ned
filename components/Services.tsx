@@ -56,21 +56,21 @@ export default function Services() {
   }, [])
 
   return (
-    <section id="services" className="section-padding section-gradient-cream relative overflow-hidden" ref={ref}>
+    <section id="services" className="section-padding section-gradient-cream dark:bg-gray-950 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 gradient-mesh pointer-events-none" />
 
       <div className="container-max relative z-10">
         <div className="mb-16">
           <div className={`flex items-center gap-3 mb-5 transition-all duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}>
             <span className="text-lg">📋</span>
-            <span className="text-navy text-xs tracking-[0.3em] uppercase font-semibold">Nos services</span>
+            <span className="text-navy dark:text-gold text-xs tracking-[0.3em] uppercase font-semibold">Nos services</span>
           </div>
-          <h2 className={`font-display text-4xl md:text-5xl text-navy mb-5 font-bold transition-all duration-700 delay-100 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h2 className={`font-display text-4xl md:text-5xl text-navy dark:text-white mb-5 font-bold transition-all duration-700 delay-100 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             Une offre complète,
             <br />
             un seul interlocuteur.
           </h2>
-          <p className={`text-muted text-lg max-w-xl leading-relaxed transition-all duration-700 delay-200 ${visible ? 'opacity-100' : 'opacity-0'}`}>
+          <p className={`text-muted dark:text-gray-400 text-lg max-w-xl leading-relaxed transition-all duration-700 delay-200 ${visible ? 'opacity-100' : 'opacity-0'}`}>
             Du suivi régulier au stage intensif — chaque intervention est conçue pour produire des
             résultats mesurables.
           </p>
@@ -81,17 +81,17 @@ export default function Services() {
             <Link
               key={service.title}
               href={service.href}
-              className={`relative bg-white p-8 rounded-2xl border border-gray-100 card-premium group block overflow-hidden transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              className={`relative bg-white dark:bg-gray-900 p-8 rounded-2xl border border-gray-100 dark:border-gray-800 card-premium group block overflow-hidden transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
               style={{ transitionDelay: `${0.3 + i * 0.15}s` }}
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-navy via-gold to-navy opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="text-3xl mb-5 group-hover:scale-110 transition-transform duration-300">{service.emoji}</div>
-              <h3 className="font-bold text-xl text-navy mb-1">{service.title}</h3>
+              <h3 className="font-bold text-xl text-navy dark:text-white mb-1">{service.title}</h3>
               <p className="text-gold text-xs tracking-widest uppercase mb-4 font-medium">{service.subtitle}</p>
-              <p className="text-muted text-sm leading-relaxed mb-6">{service.description}</p>
+              <p className="text-muted dark:text-gray-400 text-sm leading-relaxed mb-6">{service.description}</p>
               <div className="flex flex-wrap gap-2">
                 {service.tags.map((tag) => (
-                  <span key={tag} className="text-xs bg-surface px-3 py-1 rounded-full text-navy/60 font-medium">
+                  <span key={tag} className="text-xs bg-surface dark:bg-gray-800 px-3 py-1 rounded-full text-navy/60 dark:text-gray-300 font-medium">
                     {tag}
                   </span>
                 ))}
