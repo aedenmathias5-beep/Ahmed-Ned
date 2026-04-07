@@ -51,7 +51,7 @@ export default function Footer() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-12">
             <div className="col-span-2 md:col-span-1">
               <div className="flex items-center gap-3 mb-3">
-                <Image src="/logo.png" alt="Maths Connections" width={32} height={32} className="rounded-lg" />
+                <Image src="/logo.png" alt="Maths Connections" width={32} height={32} className="rounded-lg" style={{ width: 'auto', height: 'auto' }} />
                 <div>
                   <p className="text-white font-semibold text-sm">Maths Connections</p>
                   <p className="text-white/35 text-[10px]">Apprendre à réussir</p>
