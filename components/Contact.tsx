@@ -94,15 +94,15 @@ export default function Contact() {
 
   if (success) {
     return (
-      <section id="contact" className="section-padding bg-white">
+      <section id="contact" className="section-padding bg-white dark:bg-gray-950">
         <div className="container-max max-w-2xl mx-auto text-center py-16">
-          <div className="w-16 h-16 rounded-full bg-green-50 flex items-center justify-center mx-auto mb-6">
+          <div className="w-16 h-16 rounded-full bg-green-50 dark:bg-green-900/30 flex items-center justify-center mx-auto mb-6">
             <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <h2 className="text-2xl font-bold text-navy mb-3">Demande envoyée !</h2>
-          <p className="text-muted mb-6">
+          <h2 className="text-2xl font-bold text-navy dark:text-white mb-3">Demande envoyée !</h2>
+          <p className="text-muted dark:text-gray-400 mb-6">
             Je vous recontacte dans les 24h pour organiser un premier échange.
           </p>
           <button onClick={() => { setSuccess(false); setStep(1) }}
@@ -138,11 +138,11 @@ export default function Contact() {
     </div>
   )
 
-  const inputCls = 'w-full px-4 py-3 text-sm bg-white border border-gray-200 rounded-xl focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy/20 transition-colors'
-  const labelCls = 'block text-xs font-semibold text-charcoal/60 uppercase tracking-wider mb-2'
+  const inputCls = 'w-full px-4 py-3 text-sm bg-white dark:bg-gray-900 dark:text-gray-100 border border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none focus:border-navy dark:focus:border-gold focus:ring-1 focus:ring-navy/20 dark:focus:ring-gold/20 transition-colors'
+  const labelCls = 'block text-xs font-semibold text-charcoal/60 dark:text-gray-400 uppercase tracking-wider mb-2'
 
   return (
-    <section id="contact" className="section-padding bg-white">
+    <section id="contact" className="section-padding bg-white dark:bg-gray-950">
       <div className="container-max max-w-2xl mx-auto">
         {stepIndicator}
 
