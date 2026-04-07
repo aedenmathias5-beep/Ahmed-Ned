@@ -1,4 +1,4 @@
-import { createMollieClient } from '@mollie/api-client'
+import { createMollieClient, PaymentMethod } from '@mollie/api-client'
 import { NextRequest, NextResponse } from 'next/server'
 
 const mollie = createMollieClient({ apiKey: process.env.MOLLIE_API_KEY! })
@@ -18,10 +18,15 @@ export async function POST(req: NextRequest) {
       description,
       redirectUrl: `${baseUrl}/merci`,
       webhookUrl: `${baseUrl}/api/webhook`,
-      method: ['creditcard', 'applepay', 'googlepay'],
-    })
+      method: [PaymentMethod.creditcard, PaymentMethod.applepay],
+    }) as unknown as Record<string, unknown> & { getCheckoutUrl?: () => string | null; _links?: { checkout?: { href?: string } } }
 
-    return NextResponse.json({ checkoutUrl: payment.getCheckoutUrl() })
+    const checkoutUrl =
+      typeof payment.getCheckoutUrl === 'function'
+        ? payment.getCheckoutUrl()
+        : (payment._links?.checkout?.href ?? null)
+
+    return NextResponse.json({ checkoutUrl })
   } catch (error) {
     console.error('Erreur Mollie payment:', error)
     return NextResponse.json({ error: 'Erreur lors de la création du paiement' }, { status: 500 })
