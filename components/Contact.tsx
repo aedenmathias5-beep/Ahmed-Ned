@@ -4,6 +4,7 @@ import { useState } from 'react'
 
 type FormState = {
   prenom: string
+  prenomParent: string
   niveau: string
   matiere: string
   typebesoin: string
@@ -19,6 +20,7 @@ type FormState = {
 
 const initial: FormState = {
   prenom: '',
+  prenomParent: '',
   niveau: '',
   matiere: '',
   typebesoin: '',
@@ -296,8 +298,8 @@ export default function Contact() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className={labelCls}>Prénom du parent <span className="text-red-400">*</span></label>
-                  <input type="text" required value={form.prenom}
-                    onChange={(e) => set('prenom', e.target.value)}
+                  <input type="text" required value={form.prenomParent}
+                    onChange={(e) => set('prenomParent', e.target.value)}
                     className={inputCls} placeholder="Marie" />
                 </div>
                 <div>
