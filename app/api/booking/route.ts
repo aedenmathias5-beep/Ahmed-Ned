@@ -37,7 +37,7 @@ export async function POST(req: NextRequest) {
       : ''
 
   const { error: sendError } = await resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL ?? 'Réservation <onboarding@resend.dev>',
+    from: process.env.RESEND_FROM_EMAIL || 'Réservation <onboarding@resend.dev>',
     to: [process.env.CONTACT_TO_EMAIL ?? 'nedjar.objectif.reussite@gmail.com'],
     replyTo: email,
     subject: `📅 Nouveau RDV — ${prenom} ${nom} · ${dateFr} à ${heure} · ${typeLabel}`,
@@ -87,7 +87,7 @@ export async function POST(req: NextRequest) {
 
   try {
     await resend.emails.send({
-      from: process.env.RESEND_FROM_EMAIL ?? 'Nedjar Objectif Réussite <onboarding@resend.dev>',
+      from: process.env.RESEND_FROM_EMAIL || 'Nedjar Objectif Réussite <onboarding@resend.dev>',
       to: [email],
       subject: `Confirmation de votre rendez-vous — ${dateFr} à ${heure}`,
       html: `
