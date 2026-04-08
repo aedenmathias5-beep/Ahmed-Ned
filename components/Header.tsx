@@ -144,7 +144,7 @@ export default function Header() {
               key={link.href}
               href={link.href}
               onClick={() => setMenuOpen(false)}
-              className="text-charcoal/70 text-sm font-medium hover:text-navy transition-colors py-1"
+              className="text-charcoal/70 dark:text-gray-300 text-sm font-medium hover:text-navy dark:hover:text-gold transition-colors py-1"
             >
               {link.label}
             </Link>

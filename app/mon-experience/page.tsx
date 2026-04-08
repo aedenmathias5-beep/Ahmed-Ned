@@ -94,39 +94,39 @@ export default function MonExperience() {
           </div>
         </section>
 
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-white dark:bg-gray-950">
           <div className="container-max">
             <div className="grid md:grid-cols-2 gap-16 items-start mb-20">
               <div>
-                <div className="bg-cream rounded-3xl p-10 border-l-4 border-gold text-center sticky top-28">
-                  <div className="w-36 h-36 mx-auto rounded-2xl bg-navy/5 border-2 border-navy/10 flex items-center justify-center overflow-hidden mb-6">
+                <div className="bg-cream dark:bg-gray-900 rounded-3xl p-10 border-l-4 border-gold text-center sticky top-28">
+                  <div className="w-36 h-36 mx-auto rounded-2xl bg-navy/5 dark:bg-navy/20 border-2 border-navy/10 dark:border-gray-700 flex items-center justify-center overflow-hidden mb-6">
                     <Image src="/logo.png" alt="Monsieur Nedjar" width={100} height={100} className="rounded-xl" style={{ width: 'auto', height: 'auto' }} />
                   </div>
-                  <p className="text-2xl font-bold text-navy mb-2">Monsieur Nedjar</p>
-                  <p className="text-lg text-navy font-medium mb-2">Professeur Agrégé de Mathématiques</p>
-                  <p className="text-sm text-muted mb-4">
+                  <p className="text-2xl font-bold text-navy dark:text-white mb-2">Monsieur Nedjar</p>
+                  <p className="text-lg text-navy dark:text-gray-300 font-medium mb-2">Professeur Agrégé de Mathématiques</p>
+                  <p className="text-sm text-muted dark:text-gray-400 mb-4">
                     Enseignant dans deux établissements parisiens
                     <br />7<sup>ème</sup> et 8<sup>ème</sup> arrondissement
                   </p>
                   <div className="flex flex-wrap justify-center gap-2">
                     {['🎓 Agrégé', '🏫 En activité', '📋 Examinateur', '♾️ Inclusif'].map((tag) => (
-                      <span key={tag} className="text-xs bg-white px-3 py-1.5 rounded-full text-navy font-medium border border-gray-100">{tag}</span>
+                      <span key={tag} className="text-xs bg-white dark:bg-gray-800 px-3 py-1.5 rounded-full text-navy dark:text-gray-200 font-medium border border-gray-100 dark:border-gray-700">{tag}</span>
                     ))}
                   </div>
-                  <p className="text-[10px] text-muted mt-4 italic">Photo professionnelle à venir</p>
+                  <p className="text-[10px] text-muted dark:text-gray-500 mt-4 italic">Photo professionnelle à venir</p>
                 </div>
               </div>
 
               <div>
-                <h2 className="font-display text-3xl text-navy font-bold mb-8">Mon parcours</h2>
+                <h2 className="font-display text-3xl text-navy dark:text-white font-bold mb-8">Mon parcours</h2>
                 <div className="space-y-8">
                   {parcours.map((p) => (
                     <div key={p.titre} className="relative pl-8 border-l-2 border-gold/30">
                       <div className="absolute left-[-7px] top-1 w-3 h-3 rounded-full bg-gold" />
                       <p className="text-gold text-xs tracking-widest uppercase font-semibold mb-1">{p.periode}</p>
-                      <h3 className="font-bold text-navy text-lg mb-1">{p.titre}</h3>
-                      <p className="text-xs text-muted mb-2">{p.lieu}</p>
-                      <p className="text-sm text-muted leading-relaxed">{p.desc}</p>
+                      <h3 className="font-bold text-navy dark:text-white text-lg mb-1">{p.titre}</h3>
+                      <p className="text-xs text-muted dark:text-gray-400 mb-2">{p.lieu}</p>
+                      <p className="text-sm text-muted dark:text-gray-400 leading-relaxed">{p.desc}</p>
                     </div>
                   ))}
                 </div>
@@ -136,29 +136,29 @@ export default function MonExperience() {
             <div className="mb-20">
               <div className="flex items-center gap-3 mb-5">
                 <span className="text-lg">💡</span>
-                <span className="text-navy text-xs tracking-[0.3em] uppercase font-semibold">Philosophie</span>
+                <span className="text-navy dark:text-gold text-xs tracking-[0.3em] uppercase font-semibold">Philosophie</span>
               </div>
-              <h2 className="font-display text-4xl text-navy font-bold mb-10">Ma philosophie pédagogique.</h2>
+              <h2 className="font-display text-4xl text-navy dark:text-white font-bold mb-10">Ma philosophie pédagogique.</h2>
               <div className="grid md:grid-cols-2 gap-6">
                 {philosophie.map((p) => (
-                  <div key={p.titre} className="bg-surface rounded-2xl p-7 border border-gray-100">
+                  <div key={p.titre} className="bg-surface dark:bg-gray-900 rounded-2xl p-7 border border-gray-100 dark:border-gray-800">
                     <span className="text-3xl mb-4 block">{p.emoji}</span>
-                    <h3 className="font-bold text-navy mb-2 text-lg">{p.titre}</h3>
-                    <p className="text-sm text-muted leading-relaxed">{p.desc}</p>
+                    <h3 className="font-bold text-navy dark:text-white mb-2 text-lg">{p.titre}</h3>
+                    <p className="text-sm text-muted dark:text-gray-400 leading-relaxed">{p.desc}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             <div className="mb-20">
-              <h2 className="font-display text-3xl text-navy font-bold mb-6">Tous les profils sont les bienvenus.</h2>
+              <h2 className="font-display text-3xl text-navy dark:text-white font-bold mb-6">Tous les profils sont les bienvenus.</h2>
               <div className="grid md:grid-cols-2 gap-4">
                 {profils.map((p) => (
-                  <div key={p.label} className="bg-cream rounded-xl p-5 flex items-center gap-4">
+                  <div key={p.label} className="bg-cream dark:bg-gray-900 rounded-xl p-5 flex items-center gap-4">
                     <div className="w-2 h-10 rounded-full bg-gold flex-shrink-0" />
                     <div>
-                      <p className="font-bold text-navy text-sm">{p.label}</p>
-                      <p className="text-xs text-muted">{p.desc}</p>
+                      <p className="font-bold text-navy dark:text-white text-sm">{p.label}</p>
+                      <p className="text-xs text-muted dark:text-gray-400">{p.desc}</p>
                     </div>
                   </div>
                 ))}

@@ -45,27 +45,27 @@ export default function StagesVacances() {
           </div>
         </section>
 
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-white dark:bg-gray-950">
           <div className="container-max">
-            <h2 className="text-3xl text-navy font-bold mb-8">Toutes les vacances</h2>
+            <h2 className="text-3xl text-navy dark:text-white font-bold mb-8">Toutes les vacances</h2>
             <div className="grid md:grid-cols-2 gap-6 mb-16">
               {periodes.map((p) => (
-                <div key={p.label} className="bg-cream p-7 rounded-2xl flex gap-5 items-start">
+                <div key={p.label} className="bg-cream dark:bg-gray-900 p-7 rounded-2xl flex gap-5 items-start">
                   <div className="w-12 h-12 bg-gold/10 flex items-center justify-center flex-shrink-0 rounded-xl border border-gold/20">
                     <span className="text-gold font-bold text-sm">{p.label.slice(0, 2)}</span>
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl text-navy mb-2">{p.label}</h3>
-                    <p className="text-sm leading-relaxed text-muted">{p.desc}</p>
+                    <h3 className="font-bold text-xl text-navy dark:text-white mb-2">{p.label}</h3>
+                    <p className="text-sm leading-relaxed text-muted dark:text-gray-400">{p.desc}</p>
                   </div>
                 </div>
               ))}
             </div>
 
-            <h2 className="text-3xl text-navy font-bold mb-6">
+            <h2 className="text-3xl text-navy dark:text-white font-bold mb-6">
               Pourquoi un stage intensif ?
             </h2>
-            <div className="max-w-3xl text-muted leading-relaxed space-y-4">
+            <div className="max-w-3xl text-muted dark:text-gray-400 leading-relaxed space-y-4">
               <p>
                 Les vacances scolaires sont une opportunité unique : le temps est disponible,
                 la pression immédiate est moindre, et la concentration est maximale.

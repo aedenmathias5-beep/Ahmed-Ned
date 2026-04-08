@@ -77,13 +77,13 @@ export default function SuiviPage() {
             </div>
           </section>
 
-          <section className="section-padding bg-white">
+          <section className="section-padding bg-white dark:bg-gray-950">
             <div className="container-max">
               <div className="max-w-md mx-auto">
-                <div className="bg-cream rounded-2xl p-8 text-center">
+                <div className="bg-cream dark:bg-gray-900 rounded-2xl p-8 text-center">
                   <span className="text-4xl mb-4 block">🔐</span>
-                  <h2 className="text-xl font-bold text-navy mb-2">Accès sécurisé</h2>
-                  <p className="text-sm text-muted mb-6">
+                  <h2 className="text-xl font-bold text-navy dark:text-white mb-2">Accès sécurisé</h2>
+                  <p className="text-sm text-muted dark:text-gray-400 mb-6">
                     Entrez le code d&apos;accès fourni par M. Nedjar lors de votre premier rendez-vous.
                   </p>
                   <input
@@ -92,18 +92,18 @@ export default function SuiviPage() {
                     onChange={(e) => setCode(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && handleLogin()}
                     placeholder="Code d'accès élève"
-                    className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-navy outline-none text-sm text-center mb-4"
+                    className="w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 dark:text-gray-100 focus:border-navy dark:focus:border-gold outline-none text-sm text-center mb-4"
                   />
                   <button onClick={handleLogin} className="w-full btn-primary text-sm">
                     Accéder à mon espace →
                   </button>
-                  <p className="text-xs text-muted mt-4">
+                  <p className="text-xs text-muted dark:text-gray-400 mt-4">
                     Tapez <strong>demo</strong> pour voir un exemple d&apos;espace élève.
                   </p>
                 </div>
 
                 <div className="mt-12 space-y-6">
-                  <h3 className="font-display text-2xl text-navy font-bold text-center">
+                  <h3 className="font-display text-2xl text-navy dark:text-white font-bold text-center">
                     Ce que vous y trouverez
                   </h3>
                   {[
@@ -115,8 +115,8 @@ export default function SuiviPage() {
                     <div key={item.title} className="flex items-start gap-4">
                       <span className="text-2xl flex-shrink-0">{item.emoji}</span>
                       <div>
-                        <p className="font-semibold text-navy text-sm">{item.title}</p>
-                        <p className="text-xs text-muted">{item.desc}</p>
+                        <p className="font-semibold text-navy dark:text-white text-sm">{item.title}</p>
+                        <p className="text-xs text-muted dark:text-gray-400">{item.desc}</p>
                       </div>
                     </div>
                   ))}
@@ -135,11 +135,11 @@ export default function SuiviPage() {
     <>
       <Header />
       <main>
-        <section className="bg-white" style={{ paddingTop: '100px' }}>
+        <section className="bg-white dark:bg-gray-950" style={{ paddingTop: '100px' }}>
           <div className="container-max px-6 md:px-12 py-10">
             {isDemo && (
-              <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 mb-6 text-center">
-                <p className="text-sm text-amber-700 font-medium">
+              <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 mb-6 text-center">
+                <p className="text-sm text-amber-700 dark:text-amber-400 font-medium">
                   🔍 Mode démonstration — Cet espace est un exemple fictif pour illustrer le fonctionnement.
                 </p>
               </div>
@@ -148,8 +148,8 @@ export default function SuiviPage() {
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
               <div>
                 <p className="text-gold text-xs tracking-widest uppercase font-semibold mb-1">Espace élève</p>
-                <h1 className="text-3xl text-navy font-bold">{data.prenom}</h1>
-                <p className="text-sm text-muted">{data.niveau} · Objectif : {data.objectif}</p>
+                <h1 className="text-3xl text-navy dark:text-white font-bold">{data.prenom}</h1>
+                <p className="text-sm text-muted dark:text-gray-400">{data.niveau} · Objectif : {data.objectif}</p>
               </div>
               <button onClick={() => { setAuthenticated(false); setCode('') }} className="btn-outline text-sm">
                 Déconnexion
@@ -157,22 +157,22 @@ export default function SuiviPage() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6 mb-10">
-              <div className="bg-surface rounded-2xl p-6 text-center">
-                <p className="text-3xl font-bold text-navy">{data.seances.length}</p>
-                <p className="text-xs text-muted">Séances réalisées</p>
+              <div className="bg-surface dark:bg-gray-900 rounded-2xl p-6 text-center">
+                <p className="text-3xl font-bold text-navy dark:text-white">{data.seances.length}</p>
+                <p className="text-xs text-muted dark:text-gray-400">Séances réalisées</p>
               </div>
-              <div className="bg-surface rounded-2xl p-6 text-center">
-                <p className="text-3xl font-bold text-green-600">+{data.progression[data.progression.length - 1].note - data.progression[0].note} pts</p>
-                <p className="text-xs text-muted">Progression</p>
+              <div className="bg-surface dark:bg-gray-900 rounded-2xl p-6 text-center">
+                <p className="text-3xl font-bold text-green-600 dark:text-green-400">+{data.progression[data.progression.length - 1].note - data.progression[0].note} pts</p>
+                <p className="text-xs text-muted dark:text-gray-400">Progression</p>
               </div>
-              <div className="bg-surface rounded-2xl p-6 text-center">
-                <p className="text-3xl font-bold text-navy">{data.progression[data.progression.length - 1].note}/20</p>
-                <p className="text-xs text-muted">Dernière note</p>
+              <div className="bg-surface dark:bg-gray-900 rounded-2xl p-6 text-center">
+                <p className="text-3xl font-bold text-navy dark:text-white">{data.progression[data.progression.length - 1].note}/20</p>
+                <p className="text-xs text-muted dark:text-gray-400">Dernière note</p>
               </div>
             </div>
 
-            <div className="bg-cream rounded-2xl p-6 mb-10">
-              <h2 className="font-bold text-navy mb-4">📈 Évolution des notes</h2>
+            <div className="bg-cream dark:bg-gray-900 rounded-2xl p-6 mb-10">
+              <h2 className="font-bold text-navy dark:text-white mb-4">📈 Évolution des notes</h2>
               <div className="relative" style={{ height: chartHeight + 40 }}>
                 <div className="absolute left-0 top-0 bottom-8 w-8 flex flex-col justify-between text-xs text-muted">
                   <span>20</span>
@@ -184,38 +184,38 @@ export default function SuiviPage() {
                 <div className="ml-10 h-full flex items-end gap-2 pb-8">
                   {data.progression.map((p, i) => (
                     <div key={i} className="flex-1 flex flex-col items-center gap-1">
-                      <span className="text-xs font-bold text-navy">{p.note}</span>
+                      <span className="text-xs font-bold text-navy dark:text-white">{p.note}</span>
                       <div
                         className="w-full bg-navy rounded-t-lg transition-all"
                         style={{ height: `${(p.note / maxNote) * chartHeight}px` }}
                       />
-                      <span className="text-[10px] text-muted">{p.date}</span>
+                      <span className="text-[10px] text-muted dark:text-gray-400">{p.date}</span>
                     </div>
                   ))}
                 </div>
               </div>
             </div>
 
-            <h2 className="font-bold text-navy text-xl mb-6">📝 Comptes-rendus de séance</h2>
+            <h2 className="font-bold text-navy dark:text-white text-xl mb-6">📝 Comptes-rendus de séance</h2>
             <div className="space-y-6 mb-10">
               {data.seances.map((s) => (
-                <div key={s.date} className="bg-white border border-gray-100 rounded-2xl p-6 shadow-sm">
+                <div key={s.date} className="bg-white dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-2xl p-6 shadow-sm">
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-bold text-navy">{s.titre}</h3>
-                    <span className="text-xs text-muted">{s.date}</span>
+                    <h3 className="font-bold text-navy dark:text-white">{s.titre}</h3>
+                    <span className="text-xs text-muted dark:text-gray-400">{s.date}</span>
                   </div>
-                  <p className="text-sm text-muted leading-relaxed mb-4">{s.resume}</p>
+                  <p className="text-sm text-muted dark:text-gray-400 leading-relaxed mb-4">{s.resume}</p>
                   <div className="mb-4">
-                    <p className="text-xs font-semibold text-navy mb-2">Objectifs :</p>
+                    <p className="text-xs font-semibold text-navy dark:text-white mb-2">Objectifs :</p>
                     <div className="flex flex-wrap gap-2">
                       {s.objectifs.map((o) => (
-                        <span key={o} className="text-xs bg-surface px-3 py-1 rounded-full">{o}</span>
+                        <span key={o} className="text-xs bg-surface dark:bg-gray-800 dark:text-gray-300 px-3 py-1 rounded-full">{o}</span>
                       ))}
                     </div>
                   </div>
-                  <div className="bg-cream rounded-xl p-4">
-                    <p className="text-xs font-semibold text-navy mb-1">📋 À faire pour la prochaine séance :</p>
-                    <p className="text-sm text-muted">{s.devoirs}</p>
+                  <div className="bg-cream dark:bg-gray-800 rounded-xl p-4">
+                    <p className="text-xs font-semibold text-navy dark:text-white mb-1">📋 À faire pour la prochaine séance :</p>
+                    <p className="text-sm text-muted dark:text-gray-400">{s.devoirs}</p>
                   </div>
                 </div>
               ))}

@@ -67,15 +67,15 @@ export default function APropos() {
           </div>
         </section>
 
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-white dark:bg-gray-950">
           <div className="container-max">
             <div className="grid md:grid-cols-2 gap-16 items-start">
               <div>
-                <div className="bg-cream rounded-2xl p-10 border-l-4 border-gold mb-8">
+                <div className="bg-cream dark:bg-gray-900 rounded-2xl p-10 border-l-4 border-gold mb-8">
                   <div className="flex justify-center mb-6">
                     <Image src="/logo.png" alt="Maths Connections" width={80} height={80} className="rounded-xl" style={{ width: 'auto', height: 'auto' }} />
                   </div>
-                  <blockquote className="text-xl text-navy leading-relaxed text-center font-medium italic">
+                  <blockquote className="text-xl text-navy dark:text-white leading-relaxed text-center font-medium italic">
                     &ldquo;Je connais les programmes, les examinateurs, et ce qu&apos;on attend
                     réellement de vos enfants le jour J.&rdquo;
                   </blockquote>
@@ -84,16 +84,16 @@ export default function APropos() {
                       <span className="text-white font-bold text-sm">AN</span>
                     </div>
                     <div>
-                      <p className="font-semibold text-navy text-sm">Ahmed Nedjar</p>
-                      <p className="text-xs text-muted">Professeur Agrégé</p>
+                      <p className="font-semibold text-navy dark:text-white text-sm">Ahmed Nedjar</p>
+                      <p className="text-xs text-muted dark:text-gray-400">Professeur Agrégé</p>
                     </div>
                   </div>
                 </div>
               </div>
 
               <div>
-                <h2 className="text-3xl text-navy font-bold mb-6">Mon parcours</h2>
-                <p className="text-muted leading-relaxed mb-10">
+                <h2 className="text-3xl text-navy dark:text-white font-bold mb-6">Mon parcours</h2>
+                <p className="text-muted dark:text-gray-400 leading-relaxed mb-10">
                   Professeur agrégé de mathématiques, j&apos;enseigne dans le secondaire et
                   travaille chaque jour avec des élèves aux profils variés. Cette réalité de
                   terrain me permet de proposer un accompagnement véritablement adapté — pas un
@@ -106,8 +106,8 @@ export default function APropos() {
                     <div key={p.title} className="flex items-start gap-4">
                       <span className="text-2xl flex-shrink-0">{p.emoji}</span>
                       <div>
-                        <p className="text-navy font-semibold text-sm">{p.title}</p>
-                        <p className="text-xs leading-relaxed mt-1 text-muted">{p.desc}</p>
+                        <p className="text-navy dark:text-white font-semibold text-sm">{p.title}</p>
+                        <p className="text-xs leading-relaxed mt-1 text-muted dark:text-gray-400">{p.desc}</p>
                       </div>
                     </div>
                   ))}

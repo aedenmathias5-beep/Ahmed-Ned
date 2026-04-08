@@ -125,20 +125,22 @@ export default function BookingCalendar() {
     }
   }
 
+  const inputCls = 'w-full px-4 py-3 rounded-xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-900 text-charcoal dark:text-gray-100 focus:border-navy dark:focus:border-gold focus:ring-1 focus:ring-navy/20 dark:focus:ring-gold/20 outline-none text-sm transition-colors'
+
   if (sent) {
     return (
-      <div className="bg-cream rounded-2xl p-10 text-center max-w-xl mx-auto">
+      <div className="bg-cream dark:bg-gray-900 rounded-2xl p-10 text-center max-w-xl mx-auto">
         <span className="text-5xl mb-4 block">✅</span>
-        <h3 className="text-2xl font-bold text-navy mb-3">Rendez-vous demandé !</h3>
-        <p className="text-muted mb-2">
+        <h3 className="text-2xl font-bold text-navy dark:text-white mb-3">Rendez-vous demandé !</h3>
+        <p className="text-muted dark:text-gray-400 mb-2">
           Votre demande de rendez-vous a bien été envoyée.
         </p>
-        <p className="text-sm text-muted mb-6">
+        <p className="text-sm text-muted dark:text-gray-400 mb-6">
           {TYPES_SEANCE.find((t) => t.id === typeSeance)?.label} — {formatSelectedDate()} à {selectedTime}
         </p>
-        <div className="bg-white rounded-xl p-5 text-left mb-6">
-          <p className="text-sm text-navy font-semibold mb-2">Prochaines étapes :</p>
-          <ul className="space-y-2 text-sm text-muted">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-5 text-left mb-6">
+          <p className="text-sm text-navy dark:text-white font-semibold mb-2">Prochaines étapes :</p>
+          <ul className="space-y-2 text-sm text-muted dark:text-gray-400">
             <li className="flex items-start gap-2">
               <span className="text-green-500 mt-0.5">✓</span>
               Vous recevrez une confirmation par email sous quelques minutes
@@ -166,21 +168,21 @@ export default function BookingCalendar() {
         {[1, 2, 3, 4].map((s) => (
           <div key={s} className="flex items-center gap-3">
             <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold ${
-              step === s ? 'bg-navy text-white' : step > s ? 'bg-green-500 text-white' : 'bg-gray-100 text-muted'
+              step === s ? 'bg-navy text-white' : step > s ? 'bg-green-500 text-white' : 'bg-gray-100 dark:bg-gray-800 text-muted dark:text-gray-400'
             }`}>
               {step > s ? '✓' : s}
             </div>
-            <span className={`text-xs font-medium hidden md:block ${step === s ? 'text-navy' : 'text-muted'}`}>
+            <span className={`text-xs font-medium hidden md:block ${step === s ? 'text-navy dark:text-gold' : 'text-muted dark:text-gray-400'}`}>
               {s === 1 ? 'Type de séance' : s === 2 ? 'Date & heure' : s === 3 ? 'Vos infos' : 'Confirmation'}
             </span>
-            {s < 4 && <div className="hidden md:block w-12 h-px bg-gray-200" />}
+            {s < 4 && <div className="hidden md:block w-12 h-px bg-gray-200 dark:bg-gray-700" />}
           </div>
         ))}
       </div>
 
       {step === 1 && (
         <div>
-          <h3 className="text-xl font-bold text-navy mb-6 text-center">Quel type de séance souhaitez-vous ?</h3>
+          <h3 className="text-xl font-bold text-navy dark:text-white mb-6 text-center">Quel type de séance souhaitez-vous ?</h3>
           <div className="grid md:grid-cols-2 gap-4">
             {TYPES_SEANCE.map((type) => (
               <button
@@ -188,13 +190,13 @@ export default function BookingCalendar() {
                 onClick={() => { setTypeSeance(type.id); setStep(2) }}
                 className={`text-left p-6 rounded-2xl border-2 transition-all ${
                   typeSeance === type.id
-                    ? 'border-navy bg-surface'
-                    : 'border-gray-100 bg-white hover:border-navy/30 hover:shadow-md'
+                    ? 'border-navy dark:border-gold bg-surface dark:bg-gray-800'
+                    : 'border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 hover:border-navy/30 dark:hover:border-gold/30 hover:shadow-md'
                 }`}
               >
                 <span className="text-3xl mb-3 block">{type.emoji}</span>
-                <p className="font-bold text-navy mb-1">{type.label}</p>
-                <p className="text-sm text-muted">{type.desc}</p>
+                <p className="font-bold text-navy dark:text-white mb-1">{type.label}</p>
+                <p className="text-sm text-muted dark:text-gray-400">{type.desc}</p>
               </button>
             ))}
           </div>
@@ -203,24 +205,24 @@ export default function BookingCalendar() {
 
       {step === 2 && (
         <div>
-          <h3 className="text-xl font-bold text-navy mb-6 text-center">Choisissez une date et un créneau</h3>
+          <h3 className="text-xl font-bold text-navy dark:text-white mb-6 text-center">Choisissez une date et un créneau</h3>
 
-          <div className="bg-cream rounded-2xl p-6 mb-6">
+          <div className="bg-cream dark:bg-gray-900 rounded-2xl p-6 mb-6">
             <div className="flex items-center justify-between mb-6">
-              <button onClick={goToPrevMonth} className="p-2 hover:bg-white rounded-lg transition-colors text-navy">
+              <button onClick={goToPrevMonth} aria-label="Mois précédent" className="p-2 hover:bg-white dark:hover:bg-gray-800 rounded-lg transition-colors text-navy dark:text-gold">
                 ←
               </button>
-              <h4 className="font-bold text-navy text-lg">
+              <h4 className="font-bold text-navy dark:text-white text-lg">
                 {MOIS[currentMonth]} {currentYear}
               </h4>
-              <button onClick={goToNextMonth} className="p-2 hover:bg-white rounded-lg transition-colors text-navy">
+              <button onClick={goToNextMonth} aria-label="Mois suivant" className="p-2 hover:bg-white dark:hover:bg-gray-800 rounded-lg transition-colors text-navy dark:text-gold">
                 →
               </button>
             </div>
 
             <div className="grid grid-cols-7 gap-1 mb-2">
               {JOURS.map((j) => (
-                <div key={j} className="text-center text-xs font-semibold text-muted py-2">{j}</div>
+                <div key={j} className="text-center text-xs font-semibold text-muted dark:text-gray-400 py-2">{j}</div>
               ))}
             </div>
 
@@ -239,12 +241,13 @@ export default function BookingCalendar() {
                     key={day}
                     onClick={() => handleDateClick(day)}
                     disabled={past || sunday}
+                    aria-label={`${day} ${MOIS[currentMonth]} ${currentYear}`}
                     className={`p-2 text-sm rounded-lg transition-all ${
                       selected
                         ? 'bg-navy text-white font-bold'
                         : past || sunday
-                        ? 'text-gray-300 cursor-not-allowed'
-                        : 'hover:bg-white text-navy font-medium'
+                        ? 'text-gray-300 dark:text-gray-600 cursor-not-allowed'
+                        : 'hover:bg-white dark:hover:bg-gray-800 text-navy dark:text-gray-200 font-medium'
                     }`}
                   >
                     {day}
@@ -256,7 +259,7 @@ export default function BookingCalendar() {
 
           {selectedDate && (
             <div className="mb-6">
-              <p className="text-sm font-semibold text-navy mb-3">
+              <p className="text-sm font-semibold text-navy dark:text-white mb-3">
                 Créneaux disponibles — {formatSelectedDate()}
               </p>
               <div className="grid grid-cols-5 gap-2">
@@ -267,7 +270,7 @@ export default function BookingCalendar() {
                     className={`py-3 px-2 rounded-xl text-sm font-medium transition-all ${
                       selectedTime === c
                         ? 'bg-navy text-white'
-                        : 'bg-cream hover:bg-surface text-navy'
+                        : 'bg-cream dark:bg-gray-900 hover:bg-surface dark:hover:bg-gray-800 text-navy dark:text-gray-200'
                     }`}
                   >
                     {c}
@@ -294,71 +297,71 @@ export default function BookingCalendar() {
 
       {step === 3 && (
         <div>
-          <h3 className="text-xl font-bold text-navy mb-6 text-center">Vos coordonnées</h3>
+          <h3 className="text-xl font-bold text-navy dark:text-white mb-6 text-center">Vos coordonnées</h3>
 
-          <div className="bg-cream rounded-2xl p-5 mb-6 flex flex-wrap gap-4 text-sm">
+          <div className="bg-cream dark:bg-gray-900 rounded-2xl p-5 mb-6 flex flex-wrap gap-4 text-sm">
             <div className="flex items-center gap-2">
               <span className="text-lg">{TYPES_SEANCE.find((t) => t.id === typeSeance)?.emoji}</span>
-              <span className="text-navy font-medium">{TYPES_SEANCE.find((t) => t.id === typeSeance)?.label}</span>
+              <span className="text-navy dark:text-white font-medium">{TYPES_SEANCE.find((t) => t.id === typeSeance)?.label}</span>
             </div>
-            <span className="text-muted">·</span>
-            <span className="text-navy font-medium">{formatSelectedDate()}</span>
-            <span className="text-muted">·</span>
-            <span className="text-navy font-bold">{selectedTime}</span>
+            <span className="text-muted dark:text-gray-500">·</span>
+            <span className="text-navy dark:text-gray-300 font-medium">{formatSelectedDate()}</span>
+            <span className="text-muted dark:text-gray-500">·</span>
+            <span className="text-navy dark:text-gold font-bold">{selectedTime}</span>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="text-xs uppercase tracking-wider text-muted font-medium mb-2 block">Prénom *</label>
+              <label className="text-xs uppercase tracking-wider text-muted dark:text-gray-400 font-medium mb-2 block">Prénom *</label>
               <input
                 type="text"
                 value={prenom}
                 onChange={(e) => setPrenom(e.target.value)}
                 placeholder="Marie"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-navy focus:ring-1 focus:ring-navy outline-none text-sm"
+                className={inputCls}
               />
             </div>
             <div>
-              <label className="text-xs uppercase tracking-wider text-muted font-medium mb-2 block">Nom *</label>
+              <label className="text-xs uppercase tracking-wider text-muted dark:text-gray-400 font-medium mb-2 block">Nom *</label>
               <input
                 type="text"
                 value={nom}
                 onChange={(e) => setNom(e.target.value)}
                 placeholder="Dupont"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-navy focus:ring-1 focus:ring-navy outline-none text-sm"
+                className={inputCls}
               />
             </div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-4 mb-4">
             <div>
-              <label className="text-xs uppercase tracking-wider text-muted font-medium mb-2 block">Email *</label>
+              <label className="text-xs uppercase tracking-wider text-muted dark:text-gray-400 font-medium mb-2 block">Email *</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="email@exemple.com"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-navy focus:ring-1 focus:ring-navy outline-none text-sm"
+                className={inputCls}
               />
             </div>
             <div>
-              <label className="text-xs uppercase tracking-wider text-muted font-medium mb-2 block">Téléphone *</label>
+              <label className="text-xs uppercase tracking-wider text-muted dark:text-gray-400 font-medium mb-2 block">Téléphone *</label>
               <input
                 type="tel"
                 value={telephone}
                 onChange={(e) => setTelephone(e.target.value)}
                 placeholder="06 XX XX XX XX"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-navy focus:ring-1 focus:ring-navy outline-none text-sm"
+                className={inputCls}
               />
             </div>
           </div>
 
           <div className="mb-4">
-            <label className="text-xs uppercase tracking-wider text-muted font-medium mb-2 block">Niveau de l&apos;élève</label>
+            <label className="text-xs uppercase tracking-wider text-muted dark:text-gray-400 font-medium mb-2 block">Niveau de l&apos;élève</label>
             <select
               value={niveau}
               onChange={(e) => setNiveau(e.target.value)}
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-navy focus:ring-1 focus:ring-navy outline-none text-sm bg-white"
+              className={inputCls}
             >
               <option value="">— Sélectionner</option>
               <option value="maternelle">Maternelle (3–6 ans)</option>
@@ -379,18 +382,18 @@ export default function BookingCalendar() {
           </div>
 
           <div className="mb-6">
-            <label className="text-xs uppercase tracking-wider text-muted font-medium mb-2 block">Message (optionnel)</label>
+            <label className="text-xs uppercase tracking-wider text-muted dark:text-gray-400 font-medium mb-2 block">Message (optionnel)</label>
             <textarea
               value={message}
               onChange={(e) => setMessage(e.target.value)}
               rows={3}
               placeholder="Décrivez brièvement la situation ou vos attentes…"
-              className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-navy focus:ring-1 focus:ring-navy outline-none text-sm resize-none"
+              className={inputCls + ' resize-none'}
             />
           </div>
 
           {error && (
-            <div className="bg-red-50 text-red-600 text-sm p-4 rounded-xl mb-4">{error}</div>
+            <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm p-4 rounded-xl mb-4">{error}</div>
           )}
 
           <div className="flex justify-between">
@@ -410,61 +413,61 @@ export default function BookingCalendar() {
 
       {step === 4 && (
         <div>
-          <h3 className="text-xl font-bold text-navy mb-6 text-center">Confirmez votre rendez-vous</h3>
+          <h3 className="text-xl font-bold text-navy dark:text-white mb-6 text-center">Confirmez votre rendez-vous</h3>
 
-          <div className="bg-cream rounded-2xl p-8 mb-6 space-y-4">
+          <div className="bg-cream dark:bg-gray-900 rounded-2xl p-8 mb-6 space-y-4">
             <div className="flex items-center gap-3">
               <span className="text-2xl">{TYPES_SEANCE.find((t) => t.id === typeSeance)?.emoji}</span>
               <div>
-                <p className="text-navy font-bold">{TYPES_SEANCE.find((t) => t.id === typeSeance)?.label}</p>
-                <p className="text-sm text-muted">{TYPES_SEANCE.find((t) => t.id === typeSeance)?.desc}</p>
+                <p className="text-navy dark:text-white font-bold">{TYPES_SEANCE.find((t) => t.id === typeSeance)?.label}</p>
+                <p className="text-sm text-muted dark:text-gray-400">{TYPES_SEANCE.find((t) => t.id === typeSeance)?.desc}</p>
               </div>
             </div>
-            <hr className="border-gray-200" />
+            <hr className="border-gray-200 dark:border-gray-700" />
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <p className="text-xs text-muted uppercase tracking-wider mb-1">Date</p>
-                <p className="text-navy font-semibold">{formatSelectedDate()}</p>
+                <p className="text-xs text-muted dark:text-gray-400 uppercase tracking-wider mb-1">Date</p>
+                <p className="text-navy dark:text-white font-semibold">{formatSelectedDate()}</p>
               </div>
               <div>
-                <p className="text-xs text-muted uppercase tracking-wider mb-1">Heure</p>
-                <p className="text-navy font-bold text-lg">{selectedTime}</p>
+                <p className="text-xs text-muted dark:text-gray-400 uppercase tracking-wider mb-1">Heure</p>
+                <p className="text-navy dark:text-gold font-bold text-lg">{selectedTime}</p>
               </div>
             </div>
-            <hr className="border-gray-200" />
+            <hr className="border-gray-200 dark:border-gray-700" />
             <div className="grid md:grid-cols-2 gap-4">
               <div>
-                <p className="text-xs text-muted uppercase tracking-wider mb-1">Nom</p>
-                <p className="text-navy font-semibold">{prenom} {nom}</p>
+                <p className="text-xs text-muted dark:text-gray-400 uppercase tracking-wider mb-1">Nom</p>
+                <p className="text-navy dark:text-white font-semibold">{prenom} {nom}</p>
               </div>
               <div>
-                <p className="text-xs text-muted uppercase tracking-wider mb-1">Contact</p>
-                <p className="text-navy text-sm">{email}</p>
-                <p className="text-navy text-sm">{telephone}</p>
+                <p className="text-xs text-muted dark:text-gray-400 uppercase tracking-wider mb-1">Contact</p>
+                <p className="text-navy dark:text-gray-300 text-sm">{email}</p>
+                <p className="text-navy dark:text-gray-300 text-sm">{telephone}</p>
               </div>
             </div>
             {niveau && (
               <>
-                <hr className="border-gray-200" />
+                <hr className="border-gray-200 dark:border-gray-700" />
                 <div>
-                  <p className="text-xs text-muted uppercase tracking-wider mb-1">Niveau</p>
-                  <p className="text-navy font-semibold">{niveau}</p>
+                  <p className="text-xs text-muted dark:text-gray-400 uppercase tracking-wider mb-1">Niveau</p>
+                  <p className="text-navy dark:text-white font-semibold">{niveau}</p>
                 </div>
               </>
             )}
             {message && (
               <>
-                <hr className="border-gray-200" />
+                <hr className="border-gray-200 dark:border-gray-700" />
                 <div>
-                  <p className="text-xs text-muted uppercase tracking-wider mb-1">Message</p>
-                  <p className="text-sm text-muted">{message}</p>
+                  <p className="text-xs text-muted dark:text-gray-400 uppercase tracking-wider mb-1">Message</p>
+                  <p className="text-sm text-muted dark:text-gray-400">{message}</p>
                 </div>
               </>
             )}
           </div>
 
           {error && (
-            <div className="bg-red-50 text-red-600 text-sm p-4 rounded-xl mb-4">{error}</div>
+            <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 text-sm p-4 rounded-xl mb-4">{error}</div>
           )}
 
           <div className="flex justify-between">

@@ -37,40 +37,37 @@ export default function PrendreRendezVous() {
           </div>
         </section>
 
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-white dark:bg-gray-950">
           <div className="container-max">
             <div className="grid md:grid-cols-4 gap-4 mb-12">
-              <div className="bg-cream rounded-2xl p-6 text-center">
-                <span className="text-2xl mb-2 block">📞</span>
-                <p className="font-semibold text-navy text-sm mb-1">Téléphone</p>
-                <p className="text-sm text-muted">06 XX XX XX XX</p>
-                <p className="text-xs text-gold mt-1">(numéro pro à venir)</p>
-              </div>
-              <div className="bg-cream rounded-2xl p-6 text-center">
-                <span className="text-2xl mb-2 block">📧</span>
-                <p className="font-semibold text-navy text-sm mb-1">Email</p>
-                <a href="mailto:nedjar.objectif.reussite@gmail.com" className="text-xs text-navy hover:text-navy/70 transition-colors break-all">
-                  nedjar.objectif.reussite@gmail.com
-                </a>
-              </div>
-              <div className="bg-cream rounded-2xl p-6 text-center">
-                <span className="text-2xl mb-2 block">⏱️</span>
-                <p className="font-semibold text-navy text-sm mb-1">Réponse</p>
-                <p className="text-sm text-muted">Sous 24 heures</p>
-              </div>
-              <div className="bg-cream rounded-2xl p-6 text-center">
-                <span className="text-2xl mb-2 block">🕐</span>
-                <p className="font-semibold text-navy text-sm mb-1">Disponibilité</p>
-                <p className="text-xs text-muted">Lun–Sam : 8h–20h</p>
-                <p className="text-xs text-muted">Dim : sur demande</p>
-              </div>
+              {[
+                { emoji: '📞', title: 'Téléphone', line1: '06 XX XX XX XX', line2: '(numéro pro à venir)', isGold: true },
+                { emoji: '📧', title: 'Email', isEmail: true },
+                { emoji: '⏱️', title: 'Réponse', line1: 'Sous 24 heures' },
+                { emoji: '🕐', title: 'Disponibilité', line1: 'Lun–Sam : 8h–20h', line2: 'Dim : sur demande' },
+              ].map((card) => (
+                <div key={card.title} className="bg-cream dark:bg-gray-900 rounded-2xl p-6 text-center">
+                  <span className="text-2xl mb-2 block">{card.emoji}</span>
+                  <p className="font-semibold text-navy dark:text-white text-sm mb-1">{card.title}</p>
+                  {card.isEmail ? (
+                    <a href="mailto:nedjar.objectif.reussite@gmail.com" className="text-xs text-navy dark:text-gold hover:text-navy/70 dark:hover:text-gold/70 transition-colors break-all">
+                      nedjar.objectif.reussite@gmail.com
+                    </a>
+                  ) : (
+                    <>
+                      <p className="text-sm text-muted dark:text-gray-400">{card.line1}</p>
+                      {card.line2 && <p className={`text-xs mt-1 ${card.isGold ? 'text-gold' : 'text-muted dark:text-gray-400'}`}>{card.line2}</p>}
+                    </>
+                  )}
+                </div>
+              ))}
             </div>
 
-            <div className="bg-surface rounded-2xl p-6 mb-12 flex items-start gap-4">
+            <div className="bg-surface dark:bg-gray-900 rounded-2xl p-6 mb-12 flex items-start gap-4">
               <span className="text-2xl flex-shrink-0">🎁</span>
               <div>
-                <p className="font-bold text-navy text-sm mb-1">Premier appel de découverte gratuit</p>
-                <p className="text-xs text-muted leading-relaxed">
+                <p className="font-bold text-navy dark:text-white text-sm mb-1">Premier appel de découverte gratuit</p>
+                <p className="text-xs text-muted dark:text-gray-400 leading-relaxed">
                   15 minutes pour faire connaissance, comprendre les besoins de votre enfant et
                   vous expliquer comment je peux l&apos;accompagner. Sans engagement, sans frais.
                   C&apos;est la meilleure façon de savoir si mon approche vous convient.
@@ -78,9 +75,9 @@ export default function PrendreRendezVous() {
               </div>
             </div>
 
-            <div className="border-t border-gray-100 pt-12 mb-6">
-              <h2 className="font-display text-3xl text-navy font-bold mb-2 text-center">Réservation en ligne</h2>
-              <p className="text-sm text-muted text-center mb-8">
+            <div className="border-t border-gray-100 dark:border-gray-800 pt-12 mb-6">
+              <h2 className="font-display text-3xl text-navy dark:text-white font-bold mb-2 text-center">Réservation en ligne</h2>
+              <p className="text-sm text-muted dark:text-gray-400 text-center mb-8">
                 Sélectionnez votre créneau et recevez une confirmation automatique par email.
               </p>
             </div>

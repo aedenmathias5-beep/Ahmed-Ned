@@ -97,18 +97,18 @@ export default function Temoignages() {
           </div>
         </section>
 
-        <section className="section-padding bg-cream">
+        <section className="section-padding bg-cream dark:bg-gray-950">
           <div className="container-max">
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {testimonials.map((t) => (
-                <div key={t.name} className="bg-white p-7 rounded-2xl flex flex-col gap-4 border border-gray-100 shadow-sm">
+                <div key={t.name} className="bg-white dark:bg-gray-900 p-7 rounded-2xl flex flex-col gap-4 border border-gray-100 dark:border-gray-800 shadow-sm">
                   <span className="text-2xl">{t.emoji}</span>
-                  <p className="text-sm leading-relaxed flex-1 italic text-charcoal/75">
+                  <p className="text-sm leading-relaxed flex-1 italic text-charcoal/75 dark:text-gray-300">
                     &ldquo;{t.text}&rdquo;
                   </p>
-                  <div className="pt-4 border-t border-gray-100">
-                    <p className="text-navy font-semibold text-sm">{t.name}</p>
-                    <p className="text-xs mt-0.5 text-muted">{t.location} · {t.level}</p>
+                  <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
+                    <p className="text-navy dark:text-white font-semibold text-sm">{t.name}</p>
+                    <p className="text-xs mt-0.5 text-muted dark:text-gray-400">{t.location} · {t.level}</p>
                   </div>
                 </div>
               ))}

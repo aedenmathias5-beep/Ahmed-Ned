@@ -139,9 +139,9 @@ export default function FAQ() {
         <div className={`mb-12 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex items-center gap-3 mb-5">
             <span className="text-lg">❓</span>
-            <span className="text-navy text-xs tracking-[0.3em] uppercase font-semibold">FAQ</span>
+            <span className="text-navy dark:text-gold text-xs tracking-[0.3em] uppercase font-semibold">FAQ</span>
           </div>
-          <h2 className="font-display text-4xl md:text-5xl text-navy font-bold leading-tight">
+          <h2 className="font-display text-4xl md:text-5xl text-navy dark:text-white font-bold leading-tight">
             Vos questions
             <br />
             <span className="text-gradient">nos réponses.</span>
@@ -150,14 +150,18 @@ export default function FAQ() {
 
         <div className={`grid md:grid-cols-3 gap-12 transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div>
-            <div className="space-y-2 mb-8">
+            <div className="space-y-2 mb-8" role="tablist" aria-label="Catégories FAQ">
               {categories.map((cat, i) => (
                 <button
                   key={cat.label}
+                  role="tab"
+                  aria-selected={activeCategory === i}
+                  aria-controls={`faq-panel-${i}`}
+                  id={`faq-tab-${i}`}
                   onClick={() => { setActiveCategory(i); setOpenQuestion(null) }}
                   className={`w-full text-left px-4 py-3 rounded-xl text-sm font-medium transition-all flex items-center justify-between ${
                     activeCategory === i
-                      ? 'bg-navy text-white'
+                      ? 'bg-navy text-white shadow-md'
                       : 'bg-surface dark:bg-gray-900 text-charcoal/70 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
                   }`}
                 >
@@ -179,52 +183,70 @@ export default function FAQ() {
               <p className="text-xs text-muted dark:text-gray-400 mb-3">
                 Posez-la directement à M. Nedjar — il répond sous 24h.
               </p>
-              <a href="/prendre-rendez-vous" className="text-navy font-semibold text-xs hover:text-navy/70 transition-colors">
+              <a href="/prendre-rendez-vous" className="text-navy dark:text-gold font-semibold text-xs hover:text-navy/70 dark:hover:text-gold/70 transition-colors">
                 Poser ma question →
               </a>
             </div>
           </div>
 
-          <div className="md:col-span-2">
+          <div
+            className="md:col-span-2"
+            role="tabpanel"
+            id={`faq-panel-${activeCategory}`}
+            aria-labelledby={`faq-tab-${activeCategory}`}
+          >
             <div className="mb-8">
               <h2 className="text-3xl md:text-4xl text-navy dark:text-white font-bold mb-2">
                 {categories[activeCategory].emoji} {categories[activeCategory].label}
               </h2>
-              <p className="text-sm text-muted">
+              <p className="text-sm text-muted dark:text-gray-400">
                 {categories[activeCategory].questions.length} questions fréquentes
               </p>
             </div>
 
             <div className="divide-y divide-gray-100 dark:divide-gray-800">
-              {categories[activeCategory].questions.map((faq, i) => (
-                <div key={i}>
-                  <button
-                    onClick={() => setOpenQuestion(openQuestion === i ? null : i)}
-                    className="w-full flex items-start justify-between gap-6 py-5 text-left group"
-                  >
-                    <span className={`font-medium text-base transition-colors ${
-                      openQuestion === i ? 'text-navy dark:text-gold' : 'text-charcoal dark:text-gray-200 group-hover:text-navy dark:group-hover:text-gold'
-                    }`}>
-                      {faq.q}
-                    </span>
-                    <span className="flex-shrink-0 mt-1">
-                      <svg
-                        className={`w-5 h-5 text-navy/40 transition-transform duration-200 ${
-                          openQuestion === i ? 'rotate-180' : ''
-                        }`}
-                        fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </span>
-                  </button>
-                  {openQuestion === i && (
-                    <p className="pb-5 text-sm leading-relaxed text-muted dark:text-gray-400">
-                      {faq.a}
-                    </p>
-                  )}
-                </div>
-              ))}
+              {categories[activeCategory].questions.map((faq, i) => {
+                const isOpen = openQuestion === i
+                return (
+                  <div key={i}>
+                    <button
+                      onClick={() => setOpenQuestion(isOpen ? null : i)}
+                      aria-expanded={isOpen}
+                      aria-controls={`faq-answer-${activeCategory}-${i}`}
+                      className="w-full flex items-start justify-between gap-6 py-5 text-left group"
+                    >
+                      <span className={`font-medium text-base transition-colors ${
+                        isOpen ? 'text-navy dark:text-gold' : 'text-charcoal dark:text-gray-200 group-hover:text-navy dark:group-hover:text-gold'
+                      }`}>
+                        {faq.q}
+                      </span>
+                      <span className="flex-shrink-0 mt-1">
+                        <svg
+                          className={`w-5 h-5 text-navy/40 dark:text-gray-500 transition-transform duration-300 ${
+                            isOpen ? 'rotate-180' : ''
+                          }`}
+                          fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        >
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </span>
+                    </button>
+                    <div
+                      id={`faq-answer-${activeCategory}-${i}`}
+                      role="region"
+                      className={`grid transition-all duration-300 ease-in-out ${
+                        isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <p className="pb-5 text-sm leading-relaxed text-muted dark:text-gray-400">
+                          {faq.a}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
             </div>
           </div>
         </div>

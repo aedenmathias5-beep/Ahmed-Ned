@@ -46,22 +46,22 @@ export default function CoursParticuliers() {
           </div>
         </section>
 
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-white dark:bg-gray-950">
           <div className="container-max">
-            <h2 className="text-3xl text-navy font-bold mb-8">Tous les niveaux</h2>
+            <h2 className="text-3xl text-navy dark:text-white font-bold mb-8">Tous les niveaux</h2>
             <div className="grid md:grid-cols-2 gap-6 mb-16">
               {niveaux.map((n) => (
-                <div key={n.label} className="bg-cream p-7 rounded-2xl">
-                  <h3 className="font-bold text-xl text-navy mb-2">{n.label}</h3>
-                  <p className="text-sm leading-relaxed text-muted">{n.desc}</p>
+                <div key={n.label} className="bg-cream dark:bg-gray-900 p-7 rounded-2xl">
+                  <h3 className="font-bold text-xl text-navy dark:text-white mb-2">{n.label}</h3>
+                  <p className="text-sm leading-relaxed text-muted dark:text-gray-400">{n.desc}</p>
                 </div>
               ))}
             </div>
 
-            <h2 className="text-3xl text-navy font-bold mb-6">
+            <h2 className="text-3xl text-navy dark:text-white font-bold mb-6">
               Pourquoi choisir un professeur agrégé ?
             </h2>
-            <div className="max-w-3xl text-muted leading-relaxed space-y-4">
+            <div className="max-w-3xl text-muted dark:text-gray-400 leading-relaxed space-y-4">
               <p>
                 L&apos;agrégation de mathématiques est le concours national le plus exigeant de l&apos;enseignement
                 français. Professeur agrégé en activité, je connais les programmes officiels, les exigences

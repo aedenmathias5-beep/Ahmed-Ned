@@ -71,17 +71,17 @@ export default function PreparationExamens() {
           </div>
         </section>
 
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-white dark:bg-gray-950">
           <div className="container-max">
-            <h2 className="text-3xl text-navy font-bold mb-8">Programme de préparation</h2>
+            <h2 className="text-3xl text-navy dark:text-white font-bold mb-8">Programme de préparation</h2>
             <div className="grid md:grid-cols-3 gap-6 mb-16">
               {examens.map((e) => (
-                <div key={e.label} className="bg-cream p-8 rounded-2xl">
+                <div key={e.label} className="bg-cream dark:bg-gray-900 p-8 rounded-2xl">
                   <p className="text-gold text-xs tracking-widest uppercase mb-2 font-medium">{e.niveau}</p>
-                  <h3 className="font-bold text-xl text-navy mb-5">{e.label}</h3>
+                  <h3 className="font-bold text-xl text-navy dark:text-white mb-5">{e.label}</h3>
                   <ul className="space-y-3">
                     {e.points.map((p) => (
-                      <li key={p} className="flex items-start gap-3 text-sm text-muted">
+                      <li key={p} className="flex items-start gap-3 text-sm text-muted dark:text-gray-400">
                         <span className="text-green-500 mt-0.5">✓</span>
                         {p}
                       </li>

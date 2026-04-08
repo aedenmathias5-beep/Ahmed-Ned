@@ -81,7 +81,7 @@ export default function Ressources() {
           </div>
         </section>
 
-        <section className="section-padding bg-white">
+        <section className="section-padding bg-white dark:bg-gray-950">
           <div className="container-max">
             <div className="bg-gradient-to-br from-navy via-navy to-[#1a4f7a] rounded-3xl p-8 md:p-12 mb-16">
               <div className="flex items-center gap-3 mb-6">
@@ -91,47 +91,47 @@ export default function Ressources() {
                   <p className="text-white/60 text-sm">5 questions · 2 minutes · Diagnostic personnalisé par email</p>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl p-8">
+              <div className="bg-white dark:bg-gray-900 rounded-2xl p-8">
                 <QuizNiveau />
               </div>
             </div>
 
-            <h2 className="font-display text-3xl text-navy font-bold mb-8">Nos ressources</h2>
+            <h2 className="font-display text-3xl text-navy dark:text-white font-bold mb-8">Nos ressources</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
               {categories.map((cat) => (
-                <div key={cat.titre} className="bg-cream p-7 rounded-2xl relative overflow-hidden">
+                <div key={cat.titre} className="bg-cream dark:bg-gray-900 p-7 rounded-2xl relative overflow-hidden">
                   <div className="absolute top-5 right-5">
                     <span className={`text-xs px-3 py-1 rounded-full font-semibold ${
-                      cat.statut === 'Évolution future' ? 'bg-violet-100 text-violet-600' : 'bg-gold/10 text-gold'
+                      cat.statut === 'Évolution future' ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400' : 'bg-gold/10 text-gold'
                     }`}>
                       {cat.statut}
                     </span>
                   </div>
                   <span className="text-4xl mb-4 block">{cat.emoji}</span>
-                  <h3 className="font-bold text-lg text-navy mb-2">{cat.titre}</h3>
-                  <p className="text-sm text-muted leading-relaxed mb-5">{cat.desc}</p>
+                  <h3 className="font-bold text-lg text-navy dark:text-white mb-2">{cat.titre}</h3>
+                  <p className="text-sm text-muted dark:text-gray-400 leading-relaxed mb-5">{cat.desc}</p>
                   <div className="flex flex-wrap gap-2">
                     {cat.niveaux.map((n) => (
-                      <span key={n} className="text-xs bg-white px-3 py-1 rounded-full text-muted font-medium">{n}</span>
+                      <span key={n} className="text-xs bg-white dark:bg-gray-800 px-3 py-1 rounded-full text-muted dark:text-gray-300 font-medium">{n}</span>
                     ))}
                   </div>
                 </div>
               ))}
             </div>
 
-            <h2 className="font-display text-3xl text-navy font-bold mb-8">Par niveau</h2>
+            <h2 className="font-display text-3xl text-navy dark:text-white font-bold mb-8">Par niveau</h2>
             <div className="grid md:grid-cols-3 gap-6 mb-16">
               {niveaux.map((niv) => (
-                <div key={niv.label} className="border border-gray-100 rounded-2xl p-7">
+                <div key={niv.label} className="border border-gray-100 dark:border-gray-800 rounded-2xl p-7">
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-2xl">{niv.icon}</span>
-                    <h3 className="font-bold text-lg text-navy">{niv.label}</h3>
+                    <h3 className="font-bold text-lg text-navy dark:text-white">{niv.label}</h3>
                   </div>
                   <div className="space-y-2">
                     {niv.classes.map((c) => (
                       <div key={c} className="flex items-center gap-3">
                         <div className="w-2 h-2 rounded-full bg-gold" />
-                        <span className="text-sm text-muted">{c}</span>
+                        <span className="text-sm text-muted dark:text-gray-400">{c}</span>
                       </div>
                     ))}
                   </div>
