@@ -66,7 +66,7 @@ export async function POST(req: NextRequest) {
       : ''
 
   const { error } = await resend.emails.send({
-    from: process.env.RESEND_FROM_EMAIL ?? 'Contact <onboarding@resend.dev>',
+    from: process.env.RESEND_FROM_EMAIL || 'Contact <onboarding@resend.dev>',
     to: [process.env.CONTACT_TO_EMAIL ?? 'nedjar.objectif.reussite@gmail.com'],
     replyTo: email,
     subject: `Demande RDV — ${prenomContact} ${nom} · ${niveauLabel[niveau] ?? niveau ?? '?'} · ${typeLabel[typebesoin] ?? typebesoin ?? '?'}`,
