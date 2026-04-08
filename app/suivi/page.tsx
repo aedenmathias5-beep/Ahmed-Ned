@@ -174,7 +174,7 @@ export default function SuiviPage() {
             <div className="bg-cream dark:bg-gray-900 rounded-2xl p-6 mb-10">
               <h2 className="font-bold text-navy dark:text-white mb-4">📈 Évolution des notes</h2>
               <div className="relative" style={{ height: chartHeight + 40 }}>
-                <div className="absolute left-0 top-0 bottom-8 w-8 flex flex-col justify-between text-xs text-muted">
+                <div className="absolute left-0 top-0 bottom-8 w-8 flex flex-col justify-between text-xs text-muted dark:text-gray-400">
                   <span>20</span>
                   <span>15</span>
                   <span>10</span>

@@ -194,6 +194,7 @@ export default function FAQ() {
             role="tabpanel"
             id={`faq-panel-${activeCategory}`}
             aria-labelledby={`faq-tab-${activeCategory}`}
+            tabIndex={0}
           >
             <div className="mb-8">
               <h2 className="text-3xl md:text-4xl text-navy dark:text-white font-bold mb-2">
@@ -210,6 +211,7 @@ export default function FAQ() {
                 return (
                   <div key={i}>
                     <button
+                      id={`faq-question-${activeCategory}-${i}`}
                       onClick={() => setOpenQuestion(isOpen ? null : i)}
                       aria-expanded={isOpen}
                       aria-controls={`faq-answer-${activeCategory}-${i}`}
@@ -234,6 +236,8 @@ export default function FAQ() {
                     <div
                       id={`faq-answer-${activeCategory}-${i}`}
                       role="region"
+                      aria-labelledby={`faq-question-${activeCategory}-${i}`}
+                      aria-hidden={!isOpen}
                       className={`grid transition-all duration-300 ease-in-out ${
                         isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'
                       }`}
