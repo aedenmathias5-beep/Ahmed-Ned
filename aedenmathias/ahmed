@@ -1,0 +1,402 @@
+# Fichier de suivi des modifications — Maths Connections
+
+Toutes les modifications du projet seront consignées ici.
+
+---
+
+## [2026-04-06] — V2.3 : Upgrade premium visuel — Sections Testimonials, HowItWorks, Commitment, InclusifBlock, LocationBlock, FAQ
+
+### Modifications effectuées
+
+**components/Testimonials.tsx** — Refonte complète
+- Section badge « Témoignages » avec icône étoile
+- Titre Playfair Display « Ce que disent les familles. » avec gradient doré
+- Témoignage vedette en grand format (gradient-navy, guillemets décoratifs, glow effects)
+- Carrousel automatique 5s avec indicateurs gradient (navy→gold)
+- Scroll-triggered reveal animations (IntersectionObserver)
+- Lien « Voir tous les avis → »
+
+**components/HowItWorks.tsx** — Refonte complète
+- Section badge « Comment ça marche » avec icône ⚙️
+- Titre Playfair « Démarrer en 3 étapes simples. » avec gradient
+- Cartes blanches card-premium avec barre gradient en haut
+- Numérotation 01/02/03 avec gradient text
+- Tags détail (« Sans engagement · Sous 24h ») en text-gradient
+- CTA « Démarrer maintenant » en bas
+- Fond gradient-mesh subtil + scroll animations
+
+**components/Commitment.tsx** — Refonte complète
+- Fond gradient-navy avec effets glow (gold/blue)
+- Cartes en glass morphism (backdrop-blur, border white/10)
+- Hover scale sur les emojis
+- Scroll-triggered staggered animations (0.12s entre chaque carte)
+- Ligne de séparation gradient dorée en haut
+
+**components/InclusifBlock.tsx** — Refonte complète
+- Fond section-gradient-light au lieu de bg-white
+- Carte principale gradient-navy avec glow effects
+- Profils en cartes glass avec animations staggerées
+- Citation en glass card
+- IntersectionObserver scroll animations
+
+**components/LocationBlock.tsx** — Refonte complète
+- Fond section-gradient-light + gradient-mesh overlay
+- Titre avec Playfair Display + text-gradient « nous sommes là. »
+- Cartes avec icône dans carré arrondi bg-gradient surface→cream
+- card-premium hover effect sur chaque carte
+- Scroll-triggered staggered animations
+
+**components/FAQ.tsx** — Mise à jour visuelle
+- Section badge « FAQ » avec icône ❓
+- Titre Playfair « Vos questions nos réponses. » avec gradient
+- Fond section-gradient-light + gradient-mesh
+- card-premium sur les blocs sidebar (total questions, question libre)
+- Scroll-triggered animations (titre + contenu)
+
+**components/Hero.tsx** — Fix animations
+- Remplacement setTimeout par requestAnimationFrame pour apparition immédiate
+- Réduction des délais d'animation (300→0, 700→200, 1000→500ms)
+
+---
+
+## [2026-04-06] — V2.1 : Nouvelles pages, Suivi de progression, Quiz, SEO
+
+### Modifications effectuées
+
+**app/mon-experience/page.tsx** — Refonte complète "Mon Parcours & Mon Approche"
+- Storytelling : pourquoi M. Nedjar enseigne, sa philosophie pédagogique (4 piliers)
+- Timeline visuelle du parcours (aujourd'hui, agrégation, examinateur, vocation)
+- Profils inclusifs (TDAH, TSA, Dys, HPI)
+- Message personnel aux parents (blockquote immersive sur fond navy)
+- CTA vers prendre rendez-vous
+
+**app/ressources/page.tsx** — Refonte complète avec Quiz de niveau intégré
+- Quiz de niveau gratuit en ligne (3 niveaux : 6ème, 3ème, Terminale) — 5 questions, verdict, diagnostic email
+- 5 catégories de ressources : annales, corrigés, fiches, exercices, mini-vidéos
+- Organisation par niveau (Collège, Lycée, Examens)
+- CTA de conversion vers prise de rendez-vous
+
+**components/QuizNiveau.tsx** — Nouveau composant Quiz interactif
+- 3 niveaux avec 5 questions chacun
+- Verdict dynamique (Excellent/Correct/À renforcer/Urgent)
+- Formulaire de diagnostic par email (prénom + email parent)
+- API /api/quiz pour notifications + confirmation personnalisée
+
+**app/suivi/page.tsx** — NOUVEAU : Espace privé "Suivi de progression"
+- Accès sécurisé par code élève
+- Mode démo (tapez "demo") pour illustrer aux parents
+- Dashboard avec : comptes-rendus de séance, objectifs, graphique d'évolution des notes
+- Recommandations personnalisées de M. Nedjar
+- Statistiques : séances réalisées, progression, dernière note
+
+**app/prendre-rendez-vous/page.tsx** — Amélioré
+- Header navy avec "Premier appel de découverte gratuit — 15 min"
+- 4 cartes : Téléphone, Email, Réponse sous 24h, Disponibilité (Lun-Sam 8h-20h)
+- Encart "Appel de découverte gratuit" mis en avant
+- Option "Appel de découverte gratuit 🎁" ajoutée en premier dans le calendrier
+
+**components/WhatsAppButton.tsx** — NOUVEAU : Bouton flottant de contact
+- Fixé en bas à droite, icône chat
+- Mailto vers nedjar.objectif.reussite@gmail.com
+- Tooltip "Nous contacter" au hover
+
+**app/layout.tsx** — Mise à jour
+- Ajout de Playfair Display (font-display) pour les titres
+- SEO : nouveaux mots-clés (professeur de maths Paris, cours particuliers maths 75, soutien scolaire TDAH Paris, cours maths HPI)
+
+**tailwind.config.js** — Ajout font-family display (Playfair Display)
+
+**components/Header.tsx** — Navigation mise à jour
+- Liens : Parcours, Nos cours, Ressources, Suivi élève, FAQ
+
+**components/Footer.tsx** — Navigation mise à jour
+- Ajout liens : Parcours & Approche, Suivi de progression, Blog
+
+**app/sitemap.ts** — Ajout /suivi dans le sitemap
+
+---
+
+## [2026-04-06] — V2.0 : Expérience premium & design engageant — Refonte page d'accueil
+
+### Modifications effectuées
+
+**components/Hero.tsx** — Refonte complète
+- Nouvelle phrase d'accroche animée : « L'avenir de nos enfants passe par les mathématiques. »
+- Badge « Nedjar Objectif Réussite »
+- Sous-titre : « Parce que chaque enfant mérite un accompagnement à la hauteur de son potentiel. »
+- 2 CTAs : « Prendre rendez-vous → » et « Découvrir notre approche »
+- Animation d'entrée (fade-in + slide-up) avec 3 niveaux de délai
+- Gradient background (white → surface)
+- Stats mises à jour : Inclusif (TDAH · Dys · TSA · HPI)
+
+**components/IdentityBlock.tsx** (NOUVEAU)
+- Bloc identité premium avec bordure gold
+- Photo professionnelle (placeholder, « Photo à venir »)
+- Monsieur Nedjar — Professeur Agrégé — 7ème & 8ème arrondissement
+- Tags : 🎓 Agrégé, 🏫 En activité, 📋 Examinateur, 💙 Inclusif
+
+**components/MissionBlock.tsx** (NOUVEAU)
+- Section « Notre Mission »
+- 5 piliers visuels : Cours particuliers, Aide aux devoirs, Apprentissage des leçons, Assimilation des compétences, Mise en situation d'examen réelle
+- Encart gold : « Notre force : un accompagnement pensé sur la durée »
+- 3 checkmarks : Aide à l'orientation, Soutien moral, Relation de confiance
+
+**components/InclusifBlock.tsx** (NOUVEAU)
+- Encadré distinct navy gradient avec icône ♾️ géante en fond
+- Titre « INCLUSIF » en très grand (text-3xl → text-5xl, font-black)
+- 6 profils en grille : TDAH, TSA, Dyslexie, Dyspraxie, Dyscalculie, HPI
+- Citation : « Chaque enfant apprend différemment. Nous nous adaptons. »
+
+**components/LocationBlock.tsx** (NOUVEAU)
+- 4 blocs localisation :
+  - 📍 Paris — 7ème & 8ème arrondissement
+  - 🗺️ Paris & proche banlieue (déplacement domicile)
+  - 🇫🇷 Toute la France en visioconférence
+  - 💻 Séances en ligne performantes (tableau blanc interactif, partage d'écran…)
+
+**components/WhyTrustUs.tsx** (NOUVEAU)
+- Section « Pourquoi nous faire confiance ? »
+- 4 cartes : Professeur Agrégé, Enseignant en activité, Relation directe, Résultats prouvés
+- Icônes dans carrés arrondis bg-surface
+
+**components/Testimonials.tsx** — Refonte carrousel
+- Témoignage vedette en grand format navy : « Mon fils a retrouvé confiance en lui en 3 mois. »
+- Carrousel automatique (5 secondes) avec indicateurs cliquables
+- Étoiles ★★★★★ dorées sur chaque carte
+- 7 témoignages au total
+
+**app/page.tsx** — Réorganisation complète
+- Nouvel ordre : Hero → IdentityBlock → MissionBlock → InclusifBlock → LocationBlock → WhyTrustUs → Services → HowItWorks → Commitment → Testimonials → FAQ → ComingSoon → Contact
+- TrustBadges et About remplacés par les nouveaux blocs
+
+---
+
+## [2026-04-06] — Nouvelles pages : Mon Expérience, Ressources, Prise de Rendez-vous
+
+### Modifications effectuées
+
+**app/mon-experience/page.tsx** (NOUVEAU)
+- Page parcours professionnel de M. Nedjar
+- Timeline : postes actuels, agrégation, enseignement, examens
+- Bloc identité : Monsieur Nedjar, Professeur Agrégé, 2 établissements parisiens (7e/8e)
+- 4 valeurs : accompagnement personnalisé, suivi sur la durée, accompagnement moral, profils spécifiques
+- Mention « contenu détaillé à venir »
+
+**app/ressources/page.tsx** (NOUVEAU)
+- Bibliothèque de ressources pédagogiques
+- 4 catégories : Annales d'examens, Corrigés types, Fiches de révision, Exercices classés
+- Chaque catégorie avec badge « Bientôt disponible »
+- Section « Ressources par niveau » : Collège, Lycée, Examens
+- CTA « Me contacter » en attendant les ressources
+
+**app/prendre-rendez-vous/page.tsx** — Refonte complète
+- Contact direct : téléphone (numéro pro à venir), email, délai de réponse
+- Nouveau composant BookingCalendar avec calendrier interactif
+
+**components/BookingCalendar.tsx** (NOUVEAU)
+- Système de réservation en ligne en 4 étapes :
+  1. Type de séance : Appel téléphonique, Domicile du prof, Domicile de l'élève, Visioconférence
+  2. Calendrier interactif + sélection de créneau horaire (08h-19h)
+  3. Formulaire : prénom, nom, email, téléphone, niveau, message
+  4. Page de confirmation récapitulative
+- Calendrier navigable mois par mois
+- Dimanches et dates passées désactivés
+- Validation des champs obligatoires
+
+**app/api/booking/route.ts** (NOUVEAU)
+- API de réservation
+- Email de notification au professeur (design navy/gold)
+- Email de confirmation automatique à l'élève/parent
+- Récapitulatif : date, heure, type de séance, coordonnées
+
+**components/Header.tsx** — Navigation mise à jour
+- Ajout lien « Mon expérience » (remplace « À propos »)
+- Ajout lien « Ressources »
+- Liens : Mon expérience, Nos cours, Ressources, Témoignages, FAQ
+
+**app/sitemap.ts** — Nouvelles URLs
+- /mon-experience (priority 0.8)
+- /ressources (priority 0.8)
+
+---
+
+## [2026-04-06] — Brief « Nedjar Objectif Réussite » — Mise à jour contenu page d'accueil
+
+### Modifications effectuées
+
+**components/Hero.tsx** — Bloc « Échec et Maths » : nouveau texte de description
+- Nouveau paragraphe 1 : Cours particuliers, aide aux devoirs, apprentissage des leçons, assimilation des compétences, mise en situation d'examen
+- Nouveau paragraphe 2 : Notre particularité : accompagnement sur toute l'année, aide à l'orientation, accompagnement moral et psychologique
+- Ajout du mot **INCLUSIF** en très grand (text-3xl → text-6xl, font-black, uppercase, couleur navy)
+- Ajout ligne : Accompagnement spécialisé d'élèves à particularités : TDAH, TSA, Dys (dyslexie, dyspraxie, dyscalculie…)
+- Bloc Localisation remplacé :
+  - 📍 Paris et proche banlieue
+  - 🇫🇷 Accompagnement possible dans toute la France (Strasbourg, Lyon, Bordeaux…) en visioconférence ou déplacement
+
+**components/About.tsx** — Bloc identité (rectangle)
+- Remplacement du bloc citation par :
+  - « Monsieur Nedjar »
+  - « Professeur Agrégé de Mathématiques »
+  - « Professeur dans deux établissements parisiens — 7ème et 8ème arrondissement »
+
+---
+
+## [2026-04-06] — Refonte complète pour correspondre au site mathjard.replit.app
+
+### Modifications effectuées
+
+**Identité visuelle (branding)**
+- Nouveau nom : "Maths Connections — Apprendre à réussir"
+- Logo ajouté : `public/logo.png` (téléchargé depuis le site déployé)
+- Couleur primaire changée : `#0B1F3A` → `#123A63`
+- Couleur secondaire : `#FBF4E9`
+- Design modernisé : coins arrondis (`border-radius: 16px`), boutons pill (`rounded-full`)
+- Police unique : Inter (suppression de Playfair Display)
+
+**tailwind.config.js**
+- Mise à jour des couleurs (navy, gold, cream, muted, surface)
+- Suppression de `font-serif`, ajout de `font-sans` basé sur Inter
+- Ajout des border-radius xl et full
+
+**app/globals.css**
+- Boutons redesignés : `.btn-primary` avec `border-radius: 9999px` et `box-shadow`
+- `.btn-outline` avec bordure arrondie
+- Suppression du style sombre des boutons
+
+**app/layout.tsx**
+- Suppression de Playfair Display
+- URL par défaut : `https://mathjard.replit.app`
+- Metadata : "Maths Connections" au lieu de "Ahmed Nedjar"
+- `bg-white` au lieu de `bg-cream`
+
+**components/Header.tsx**
+- Logo Maths Connections avec Image Next.js
+- Navigation simplifiée : À propos, Nos cours, Témoignages, FAQ
+- Bouton "Prendre rendez-vous" (lien vers `/prendre-rendez-vous`)
+- Design blanc avec backdrop blur
+
+**components/Hero.tsx**
+- Centré au lieu d'aligné à gauche
+- Logo grand format au-dessus du titre
+- Nouveau titre : "Echec et maths ? Des maths qui font la différence."
+- Badge "Professeur Agrégé" avec fond `surface`
+- Stats : ajout "200+ Élèves accompagnés"
+- Stats dans des cartes arrondies avec bordure
+
+**components/TrustBadges.tsx**
+- Rangée de checkmarks verts : Premier échange offert, Sans engagement, etc.
+- Icônes emoji au lieu de SVG
+- Design centré
+
+**components/Services.tsx**
+- Cartes cliquables avec `Link` vers les pages dédiées
+- Icônes emoji (📚, ⚡, 🎯)
+- Coins arrondis, tags en pill
+- Nouveau lien : `/cours-particuliers` au lieu de `/cours-particuliers-paris`
+
+**components/HowItWorks.tsx**
+- Icônes emoji (📞, 📝, 🚀)
+- Cartes dans des blocs arrondis `bg-cream`
+- Lien vers `/prendre-rendez-vous`
+
+**components/Commitment.tsx**
+- Icônes emoji (⏰, 🎯, 📊, 📄, 🔄)
+- Cartes avec `bg-white/5` et coins arrondis
+
+**components/About.tsx**
+- Logo Maths Connections dans la citation
+- Avatar rond navy au lieu de carré gold
+- Credentials avec emojis
+- Lien "En savoir plus →" vers `/a-propos`
+
+**components/Testimonials.tsx**
+- Badges emoji par témoignage (🎉, ⭐, 🏆, 🚀, ✅, 📈)
+- Lien "Voir tous les avis →" vers `/temoignages`
+- Cartes arrondies avec ombre
+
+**components/FAQ.tsx**
+- FAQ par catégories avec sidebar :
+  - 📚 Généralités (4 questions)
+  - 🗓️ Organisation (5 questions)
+  - 💶 Tarifs (4 questions)
+  - 💙 Profils spécifiques (3 questions)
+  - 🚀 Projet & Avenir (2 questions)
+- 18 questions au total
+- Compteur de questions
+- Lien "Poser ma question →"
+
+**components/Contact.tsx**
+- Formulaire multi-étapes (3 étapes) :
+  1. L'élève (prénom, niveau, matière, type de besoin, profil particulier)
+  2. L'organisation (ville, modalité, disponibilités, message)
+  3. Vos coordonnées (nom, email, téléphone)
+- Profil particulier : TDAH, Trouble Dys, TSA, Autre difficulté
+- Option "Terminale Maths Expert" ajoutée
+- Options de besoin ajoutées : Soutien adapté, Accompagnement orientation
+
+**components/ComingSoon.tsx**
+- Badge "En préparation" arrondi
+- Design modernisé
+
+**components/SeasonalBanner.tsx**
+- Lien vers `/prendre-rendez-vous`
+- z-index élevé pour rester au-dessus du header
+
+**components/Footer.tsx**
+- Section "Informations pratiques" avec cartes :
+  Email, Cabinet (7 place Émile Landrin, 75020 Paris), Visioconférence,
+  Délai de réponse, Crédit d'impôt, Tous profils (TDAH/Dys/TSA)
+- Logo Maths Connections
+- Note 4,93/5
+
+**components/CookieConsent.tsx** (NOUVEAU)
+- Bannière de consentement cookies
+- Boutons Accepter / Refuser
+- Stockage dans localStorage
+
+**components/JsonLd.tsx**
+- Mise à jour : "Maths Connections"
+- Adresse : 7 place Émile Landrin, 75020 Paris
+- AggregateRating : 4,93/5, 200 avis
+
+### Nouvelles pages
+
+**app/prendre-rendez-vous/page.tsx** (NOUVEAU)
+- Page dédiée pour la prise de rendez-vous
+- Formulaire multi-étapes intégré
+
+**app/a-propos/page.tsx** (NOUVEAU)
+- Page À propos complète
+- Parcours, qualifications, profils spécifiques bienvenus
+
+**app/temoignages/page.tsx** (NOUVEAU)
+- Page témoignages complète (8 avis)
+- Note moyenne 4,93/5
+
+**app/cours-particuliers/page.tsx** (NOUVEAU)
+- Remplace `/cours-particuliers-paris`
+- Tous les niveaux, avantages professeur agrégé
+
+### Pages mises à jour
+
+- `app/tarifs/page.tsx` — Design modernisé, CookieConsent ajouté
+- `app/preparation-examens/page.tsx` — Design modernisé, CookieConsent ajouté
+- `app/stages-vacances/page.tsx` — Design modernisé, CookieConsent ajouté
+- `app/cours-particuliers-paris/page.tsx` — Redirige vers `/cours-particuliers`
+- `app/blog/page.tsx` — Design modernisé, CookieConsent ajouté
+- `app/sitemap.ts` — Nouvelles URLs ajoutées
+- `app/robots.ts` — URL mise à jour
+- `app/page.tsx` — CookieConsent ajouté
+
+---
+
+## [2026-04-06] — Mise en place initiale
+
+### Modifications effectuées
+- Port de développement : `next dev -p 5000`
+- Workflow configuré
+- Fichier de suivi créé
+- Dossier `public/` créé
+- `replit.md` créé
+
+---
