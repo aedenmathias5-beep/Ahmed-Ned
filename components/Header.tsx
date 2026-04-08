@@ -8,6 +8,7 @@ import { useTheme } from './ThemeProvider'
 const navLinks = [
   { href: '/mon-experience', label: 'Parcours' },
   { href: '/#services', label: 'Nos cours' },
+  { href: '/tarifs', label: 'Tarifs' },
   { href: '/ressources', label: 'Ressources' },
   { href: '/suivi', label: 'Suivi élève' },
   { href: '/#faq', label: 'FAQ' },
