@@ -30,14 +30,18 @@ export default function Footer() {
   ]
 
   return (
-    <footer className="bg-navy">
-      <div className="section-padding">
+    <footer className="bg-navy relative overflow-hidden">
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-coral/20 to-transparent" />
+      <div className="absolute top-0 right-0 w-80 h-80 bg-coral/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-0 w-60 h-60 bg-teal/5 rounded-full blur-[80px]" />
+
+      <div className="section-padding relative z-10">
         <div className="container-max">
           <div className="mb-16">
             <h3 className="text-white text-lg font-bold mb-6">Informations pratiques</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {infos.map((info) => (
-                <div key={info.label} className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-start gap-3">
+                <div key={info.label} className="bg-white/5 border border-white/10 rounded-xl p-4 flex items-start gap-3 hover:bg-white/8 hover:border-coral/20 transition-all duration-300">
                   <span className="text-xl">{info.emoji}</span>
                   <div>
                     <p className="text-white/50 text-xs font-medium mb-1">{info.label}</p>
@@ -69,7 +73,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="text-xs tracking-widest uppercase mb-4 font-semibold text-white/40">
+              <p className="text-xs tracking-widest uppercase mb-4 font-semibold text-coral/60">
                 Navigation
               </p>
               <nav className="flex flex-col gap-3">
@@ -77,7 +81,7 @@ export default function Footer() {
                   <Link
                     key={l.href}
                     href={l.href}
-                    className="text-xs hover:text-white transition-colors text-white/35"
+                    className="text-xs hover:text-coral transition-colors text-white/35"
                   >
                     {l.label}
                   </Link>
@@ -86,7 +90,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="text-xs tracking-widest uppercase mb-4 font-semibold text-white/40">
+              <p className="text-xs tracking-widest uppercase mb-4 font-semibold text-coral/60">
                 Services
               </p>
               <nav className="flex flex-col gap-3">
@@ -94,7 +98,7 @@ export default function Footer() {
                   <Link
                     key={p.href}
                     href={p.href}
-                    className="text-xs hover:text-white transition-colors text-white/35"
+                    className="text-xs hover:text-coral transition-colors text-white/35"
                   >
                     {p.label}
                   </Link>
@@ -103,7 +107,7 @@ export default function Footer() {
             </div>
 
             <div>
-              <p className="text-xs tracking-widest uppercase mb-4 font-semibold text-white/40">
+              <p className="text-xs tracking-widest uppercase mb-4 font-semibold text-coral/60">
                 Contact
               </p>
               <div className="space-y-3 text-xs text-white/35">
@@ -112,7 +116,7 @@ export default function Footer() {
                 <p>Sans engagement</p>
                 <Link
                   href="/prendre-rendez-vous"
-                  className="inline-block mt-2 px-5 py-2 text-xs tracking-widest uppercase font-semibold hover:opacity-80 transition-opacity border border-gold/40 text-gold rounded-full"
+                  className="inline-block mt-2 px-5 py-2 text-xs tracking-widest uppercase font-semibold hover:opacity-80 transition-opacity border border-coral/40 text-coral rounded-full"
                 >
                   Prendre contact
                 </Link>

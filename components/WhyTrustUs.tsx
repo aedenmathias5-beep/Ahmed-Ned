@@ -40,16 +40,16 @@ export default function WhyTrustUs() {
 
   return (
     <section className="section-padding section-gradient-cream relative overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
-      <div className="absolute bottom-0 right-0 w-80 h-80 bg-gold/5 rounded-full blur-[80px]" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-teal/15 to-transparent" />
+      <div className="absolute bottom-0 right-0 w-80 h-80 bg-teal/5 rounded-full blur-[80px]" />
 
       <div className="container-max relative z-10">
         <div className="max-w-4xl mx-auto">
           <div className={`flex items-center gap-3 mb-5 transition-all duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}>
             <span className="text-lg">⭐</span>
-            <span className="text-navy text-xs tracking-[0.3em] uppercase font-semibold">Confiance</span>
+            <span className="text-navy dark:text-teal-light text-xs tracking-[0.3em] uppercase font-semibold">Confiance</span>
           </div>
-          <h2 className={`font-display text-4xl md:text-5xl text-navy mb-10 font-bold leading-tight transition-all duration-700 delay-100 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <h2 className={`font-display text-4xl md:text-5xl text-navy dark:text-white mb-10 font-bold leading-tight transition-all duration-700 delay-100 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             Pourquoi nous
             <br />
             <span className="text-gradient">faire confiance ?</span>
@@ -59,15 +59,15 @@ export default function WhyTrustUs() {
             {reasons.map((r, i) => (
               <div
                 key={r.title}
-                className={`bg-white rounded-2xl p-7 border border-gray-100 card-premium flex items-start gap-5 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                className={`bg-white dark:bg-gray-900 rounded-2xl p-7 border border-gray-100 dark:border-gray-800 card-premium flex items-start gap-5 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
                 style={{ transitionDelay: `${0.2 + i * 0.15}s` }}
               >
-                <div className="w-14 h-14 bg-gradient-to-br from-surface to-cream rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
+                <div className="w-14 h-14 bg-gradient-to-br from-coral/10 to-teal/10 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm">
                   <span className="text-3xl">{r.emoji}</span>
                 </div>
                 <div>
-                  <h3 className="font-bold text-navy mb-2">{r.title}</h3>
-                  <p className="text-sm text-muted leading-relaxed">{r.desc}</p>
+                  <h3 className="font-bold text-navy dark:text-white mb-2">{r.title}</h3>
+                  <p className="text-sm text-muted dark:text-gray-400 leading-relaxed">{r.desc}</p>
                 </div>
               </div>
             ))}

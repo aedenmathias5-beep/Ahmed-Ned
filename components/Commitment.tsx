@@ -45,14 +45,14 @@ export default function Commitment() {
 
   return (
     <section className="section-padding gradient-navy relative overflow-hidden" ref={ref}>
-      <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[100px]" />
-      <div className="absolute bottom-0 left-0 w-60 h-60 bg-blue-500/5 rounded-full blur-[60px]" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-coral/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-0 left-0 w-60 h-60 bg-teal/5 rounded-full blur-[60px]" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-coral/20 to-transparent" />
 
       <div className="container-max relative z-10">
         <div className={`flex items-center gap-3 mb-5 transition-all duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}>
           <span className="text-lg">🤝</span>
-          <span className="text-gold text-xs tracking-[0.3em] uppercase font-semibold">Nos engagements</span>
+          <span className="text-coral text-xs tracking-[0.3em] uppercase font-semibold">Nos engagements</span>
         </div>
         <div className={`flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-14 transition-all duration-700 delay-100 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="font-display text-4xl md:text-5xl text-white leading-tight font-bold">

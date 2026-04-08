@@ -10,6 +10,8 @@ const steps = [
     description:
       "Un échange téléphonique gratuit pour comprendre le profil de votre enfant, ses difficultés, ses objectifs et le contexte scolaire.",
     detail: 'Sans engagement · Sous 24h',
+    color: 'from-coral to-coral-light',
+    dotColor: 'bg-coral',
   },
   {
     number: '02',
@@ -18,6 +20,8 @@ const steps = [
     description:
       "En fonction de l'évaluation initiale, je définis un plan de travail personnalisé — rythme, objectifs, méthode — adapté au profil de l'élève.",
     detail: 'Sur mesure · Ajustable',
+    color: 'from-gold to-gold-light',
+    dotColor: 'bg-gold',
   },
   {
     number: '03',
@@ -26,6 +30,8 @@ const steps = [
     description:
       "Premier cours, premiers résultats. Les séances suivantes sont planifiées directement avec la famille, aux horaires qui conviennent.",
     detail: 'Flexible · Contact direct',
+    color: 'from-teal to-teal-light',
+    dotColor: 'bg-teal',
   },
 ]
 
@@ -44,14 +50,14 @@ export default function HowItWorks() {
 
   return (
     <section className="section-padding section-gradient-light dark:bg-gray-950 relative overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-navy/10 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-coral/15 to-transparent" />
       <div className="absolute inset-0 gradient-mesh pointer-events-none" />
 
       <div className="container-max relative z-10">
         <div className="mb-16">
           <div className={`flex items-center gap-3 mb-5 transition-all duration-700 ${visible ? 'opacity-100' : 'opacity-0'}`}>
-            <span className="text-lg">⚙️</span>
-            <span className="text-navy dark:text-gold text-xs tracking-[0.3em] uppercase font-semibold">Comment ça marche</span>
+            <span className="w-8 h-[2px] bg-gradient-to-r from-teal to-coral rounded-full" />
+            <span className="text-navy dark:text-teal-light text-xs tracking-[0.3em] uppercase font-semibold">Comment ça marche</span>
           </div>
           <div className={`flex flex-col md:flex-row md:items-end md:justify-between gap-4 transition-all duration-700 delay-100 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <h2 className="font-display text-4xl md:text-5xl text-navy dark:text-white leading-tight font-bold">
@@ -71,17 +77,17 @@ export default function HowItWorks() {
           {steps.map((step, i) => (
             <div
               key={step.number}
-              className={`relative bg-white dark:bg-gray-900 rounded-2xl p-8 card-premium border border-gray-50 dark:border-gray-800 shadow-sm transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`relative bg-white dark:bg-gray-900 rounded-3xl p-8 card-artistic border border-gray-50 dark:border-gray-800 shadow-sm transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${0.2 + i * 0.2}s` }}
             >
-              <div className="absolute top-0 left-8 w-12 h-1 bg-gradient-to-r from-navy to-gold rounded-b-full" />
+              <div className={`absolute top-0 left-8 w-12 h-1 bg-gradient-to-r ${step.color} rounded-b-full`} />
               <div className="flex items-center gap-4 mb-6 mt-2">
-                <span className="text-xs font-black text-transparent bg-gradient-to-r from-navy/20 to-gold/30 bg-clip-text uppercase">{step.number}</span>
-                <span className="text-3xl">{step.emoji}</span>
+                <span className={`w-8 h-8 rounded-full bg-gradient-to-br ${step.color} flex items-center justify-center text-xs font-black text-white`}>{step.number}</span>
+                <span className="text-3xl group-hover:scale-110 transition-transform">{step.emoji}</span>
               </div>
               <h3 className="font-bold text-xl text-navy dark:text-white mb-3">{step.title}</h3>
               <p className="text-sm leading-relaxed text-muted dark:text-gray-400 mb-4">{step.description}</p>
-              <span className="text-xs tracking-widest uppercase font-semibold text-gradient">
+              <span className="text-xs tracking-widest uppercase font-semibold text-gradient-warm">
                 {step.detail}
               </span>
             </div>

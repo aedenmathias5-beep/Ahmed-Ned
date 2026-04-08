@@ -25,7 +25,7 @@ export default function GlobalError({
                 style={{ width: 'auto', height: 'auto' }}
               />
               <div className="hidden sm:block">
-                <span className="font-semibold text-sm leading-tight block" style={{ color: '#123A63' }}>
+                <span className="font-semibold text-sm leading-tight block text-navy dark:text-white">
                   Maths Connections
                 </span>
                 <span className="text-[10px] leading-tight block text-gray-400">
@@ -38,20 +38,19 @@ export default function GlobalError({
 
         <main className="min-h-screen flex items-center justify-center pt-20">
           <div className="text-center px-4">
-            <h1 className="text-6xl font-bold mb-4" style={{ color: '#123A63' }}>Oups</h1>
+            <h1 className="text-6xl font-bold mb-4 text-navy dark:text-white">Oups</h1>
             <h2 className="text-2xl font-semibold mb-4 text-gray-800 dark:text-gray-200">Une erreur critique est survenue</h2>
             <p className="text-gray-500 dark:text-gray-400 mb-8">Nous nous excusons pour ce désagrément.</p>
             <button
               onClick={reset}
-              className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-full transition-all"
-              style={{ backgroundColor: '#123A63', color: '#fff' }}
+              className="inline-flex items-center gap-2 font-semibold text-sm px-6 py-3 rounded-full transition-all bg-navy dark:bg-coral text-white"
             >
               Réessayer
             </button>
           </div>
         </main>
 
-        <footer className="py-8 text-center" style={{ backgroundColor: '#123A63' }}>
+        <footer className="py-8 text-center bg-navy">
           <div className="max-w-7xl mx-auto px-6">
             <div className="flex items-center justify-center gap-3 mb-3">
               <Image

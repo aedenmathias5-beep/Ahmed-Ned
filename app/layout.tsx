@@ -85,13 +85,13 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#123A63',
+  themeColor: '#1E1B2E',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fr" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
-      <body className="font-sans bg-white dark:bg-gray-950 text-charcoal dark:text-gray-100 antialiased transition-colors duration-300" suppressHydrationWarning>
+      <body className="font-sans bg-cream dark:bg-gray-950 text-charcoal dark:text-gray-100 antialiased transition-colors duration-300" suppressHydrationWarning>
         <ThemeProvider>
           {children}
         </ThemeProvider>

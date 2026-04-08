@@ -133,13 +133,13 @@ export default function FAQ() {
   return (
     <section id="faq" className="section-padding section-gradient-light dark:bg-gray-950 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 gradient-mesh pointer-events-none" />
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-navy/10 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-coral/15 to-transparent" />
 
       <div className="container-max relative z-10">
         <div className={`mb-12 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex items-center gap-3 mb-5">
             <span className="text-lg">❓</span>
-            <span className="text-navy dark:text-gold text-xs tracking-[0.3em] uppercase font-semibold">FAQ</span>
+            <span className="text-navy dark:text-coral text-xs tracking-[0.3em] uppercase font-semibold">FAQ</span>
           </div>
           <h2 className="font-display text-4xl md:text-5xl text-navy dark:text-white font-bold leading-tight">
             Vos questions

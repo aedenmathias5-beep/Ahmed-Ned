@@ -75,13 +75,14 @@ export default function Testimonials() {
 
   return (
     <section id="testimonials" className="section-padding section-gradient-cream relative overflow-hidden" ref={ref}>
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-coral/20 to-transparent" />
+      <div className="absolute inset-0 math-pattern pointer-events-none" />
 
       <div className="container-max relative z-10">
         <div className={`flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12 transition-all duration-700 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div>
             <div className="flex items-center gap-3 mb-5">
-              <span className="text-lg">⭐</span>
+              <span className="w-8 h-[2px] bg-gradient-to-r from-gold to-coral rounded-full" />
               <span className="text-navy text-xs tracking-[0.3em] uppercase font-semibold">Témoignages</span>
             </div>
             <h2 className="font-display text-4xl md:text-5xl text-navy font-bold leading-tight">
@@ -90,23 +91,23 @@ export default function Testimonials() {
               <span className="text-gradient">les familles.</span>
             </h2>
           </div>
-          <Link href="/temoignages" className="text-navy font-semibold text-sm hover:text-navy/70 transition-colors group flex items-center gap-2">
+          <Link href="/temoignages" className="text-navy font-semibold text-sm hover:text-coral transition-colors group flex items-center gap-2">
             Voir tous les avis
             <span className="group-hover:translate-x-1 transition-transform">→</span>
           </Link>
         </div>
 
-        <div className={`gradient-navy rounded-3xl p-8 md:p-12 mb-8 relative overflow-hidden transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="absolute top-0 right-0 w-60 h-60 bg-gold/5 rounded-full blur-[60px]" />
-          <div className="absolute bottom-0 left-0 w-40 h-40 bg-blue-500/5 rounded-full blur-[40px]" />
-          <div className="absolute top-6 right-8 text-8xl opacity-5 select-none font-display">&ldquo;</div>
+        <div className={`bg-gradient-to-br from-navy via-navy-light to-navy rounded-3xl p-8 md:p-12 mb-8 relative overflow-hidden transition-all duration-700 delay-200 ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="absolute top-0 right-0 w-60 h-60 bg-coral/8 rounded-full blur-[60px]" />
+          <div className="absolute bottom-0 left-0 w-40 h-40 bg-teal/8 rounded-full blur-[40px]" />
+          <div className="absolute top-6 right-8 font-display text-8xl text-gradient opacity-10 select-none">&ldquo;</div>
 
           <div className="relative z-10">
             <p className="font-display text-2xl md:text-3xl text-white font-medium leading-relaxed mb-6 max-w-3xl italic">
               &ldquo;{featured.text}&rdquo;
             </p>
             <div className="flex items-center gap-3">
-              <div className="w-1 h-8 bg-gradient-to-b from-gold to-gold-light rounded-full" />
+              <div className="w-1 h-8 bg-gradient-to-b from-coral to-gold rounded-full" />
               <div>
                 <p className="text-white font-semibold text-sm">— {featured.name}</p>
                 <p className="text-white/50 text-xs">{featured.location}</p>
@@ -122,18 +123,18 @@ export default function Testimonials() {
           >
             {cards.map((t, i) => (
               <div key={t.name} className="flex-shrink-0 w-full md:w-1/3 px-2">
-                <div className="bg-white p-7 rounded-2xl flex flex-col gap-4 border border-gray-100 card-premium h-full">
+                <div className="bg-white dark:bg-gray-900 p-7 rounded-2xl flex flex-col gap-4 border border-gray-100 dark:border-gray-800 card-artistic h-full">
                   <div className="flex gap-0.5">
                     {[1, 2, 3, 4, 5].map((s) => (
                       <span key={s} className="text-gold text-sm">★</span>
                     ))}
                   </div>
-                  <p className="text-sm leading-relaxed flex-1 text-charcoal/75 italic">
+                  <p className="text-sm leading-relaxed flex-1 text-charcoal/75 dark:text-gray-300 italic">
                     &ldquo;{t.text}&rdquo;
                   </p>
-                  <div className="pt-4 border-t border-gray-100">
-                    <p className="text-navy font-semibold text-sm">{t.name}</p>
-                    <p className="text-xs mt-0.5 text-muted">
+                  <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
+                    <p className="text-navy dark:text-white font-semibold text-sm">{t.name}</p>
+                    <p className="text-xs mt-0.5 text-muted dark:text-gray-400">
                       {t.location}{t.level ? ` · ${t.level}` : ''}
                     </p>
                   </div>
@@ -149,7 +150,7 @@ export default function Testimonials() {
               key={i}
               onClick={() => setCurrent(i)}
               className={`h-2.5 rounded-full transition-all duration-500 ${
-                current === i ? 'bg-gradient-to-r from-navy to-gold w-8' : 'bg-navy/15 w-2.5'
+                current === i ? 'bg-gradient-to-r from-coral to-gold w-8' : 'bg-navy/15 dark:bg-gray-600 w-2.5'
               }`}
               aria-label={`Témoignage ${i + 1}`}
             />

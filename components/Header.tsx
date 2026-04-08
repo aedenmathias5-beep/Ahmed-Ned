@@ -65,7 +65,7 @@ export default function Header() {
               }`}
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gold rounded-full transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-coral via-gold to-teal rounded-full transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </nav>
