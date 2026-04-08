@@ -90,8 +90,24 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="font-sans bg-white dark:bg-gray-950 text-charcoal dark:text-gray-100 antialiased transition-colors duration-300">
+    <html lang="fr" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                try {
+                  var theme = localStorage.getItem('theme');
+                  if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+                    document.documentElement.classList.add('dark');
+                  }
+                } catch (e) {}
+              })();
+            `,
+          }}
+        />
+      </head>
+      <body className="font-sans bg-white dark:bg-gray-950 text-charcoal dark:text-gray-100 antialiased transition-colors duration-300" suppressHydrationWarning>
         <ThemeProvider>
           {children}
         </ThemeProvider>
